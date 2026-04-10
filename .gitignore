@@ -1,0 +1,12 @@
+data/*.csv
+experiments/logs/
+experiments/*.joblib
+__pycache__/
+*.pyc
+.env
+.DS_Store
+.ipynb_checkpoints/
+.venv/
+rag_db/
+server.pid
+uvicorn.log

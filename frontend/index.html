@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoanSight | Smart Approval</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LoanSight Application</h1>
+            <p>Comprehensive ML Assessment</p>
+        </header>
+
+        <main class="card">
+            <form id="loan-form">
+                <div class="form-grid">
+                    <!-- Standard Numerics -->
+                    <div class="input-group">
+                        <label for="loan_amount">Loan Amount</label>
+                        <input type="number" id="loan_amount" step="any" placeholder="e.g. 250000" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="applicant_income">Applicant Income</label>
+                        <input type="number" id="applicant_income" step="any" placeholder="e.g. 80000" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="population">Population</label>
+                        <input type="number" id="population" step="any" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="minority_population">Minority Population</label>
+                        <input type="number" id="minority_population" step="any" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="hud_median_family_income">HUD Median Family Income</label>
+                        <input type="number" id="hud_median_family_income" step="any" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="tract_to_msamd_income">Tract to MSAMD Income</label>
+                        <input type="number" id="tract_to_msamd_income" step="any" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="number_of_owner_occupied_units">Owner Occupied Units</label>
+                        <input type="number" id="number_of_owner_occupied_units" step="any" required>
+                    </div>
+                    
+                    <!-- A, B, C are sent automatically as null -->
+
+                    <!-- Geographic & ID Numerics -->
+                    <div class="input-group">
+                        <label for="census_tract_number">Census Tract Number</label>
+                        <input type="number" id="census_tract_number" step="any" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="county">County Code</label>
+                        <input type="number" id="county" step="any" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="msamd">MSAMD</label>
+                        <input type="number" id="msamd" step="any" required>
+                    </div>
+
+                    <!-- Category Ints -->
+                    <div class="input-group">
+                        <label for="property_type">Property Type (Code)</label>
+                        <input type="number" id="property_type" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="lien_status">Lien Status (Code)</label>
+                        <input type="number" id="lien_status" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="agency">Agency (Code)</label>
+                        <input type="number" id="agency" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="loan_type">Loan Type (Code)</label>
+                        <input type="number" id="loan_type" required>
+                    </div>
+                    <!-- D is sent automatically as null -->
+
+                    <!-- Categorical Strings -->
+                    <div class="input-group">
+                        <label for="preapproval">Preapproval</label>
+                        <select id="preapproval" required>
+                            <option value="Preapproval was requested">Requested</option>
+                            <option value="Preapproval was not requested">Not Requested</option>
+                            <option value="Not applicable">Not Applicable</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="applicant_ethnicity">Applicant Ethnicity</label>
+                        <input type="text" id="applicant_ethnicity" placeholder="e.g. Not Hispanic or Latino" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="applicant_race_name_1">Applicant Race</label>
+                        <input type="text" id="applicant_race_name_1" placeholder="e.g. White" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="applicant_sex">Applicant Sex</label>
+                        <select id="applicant_sex" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Information not provided">Information not provided</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="co_applicant_ethnicity">Co-Applicant Ethnicity</label>
+                        <input type="text" id="co_applicant_ethnicity" placeholder="e.g. No co-applicant" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="co_applicant_race_name_1">Co-Applicant Race</label>
+                        <input type="text" id="co_applicant_race_name_1" placeholder="e.g. No co-applicant" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="co_applicant_sex">Co-Applicant Sex</label>
+                        <select id="co_applicant_sex" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="No co-applicant">No co-applicant</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" id="submit-btn" class="primary-btn">
+                    <span class="btn-text">Predict Approval</span>
+                    <div class="spinner hidden"></div>
+                </button>
+            </form>
+
+            <div id="result-container" class="hidden">
+                <div class="result-header">
+                    <h2>Prediction Results</h2>
+                </div>
+                
+                <div class="decision-badge" id="decision-badge"></div>
+                
+                <div class="confidence-section">
+                    <div class="confidence-labels">
+                        <span>Confidence Score</span>
+                        <span id="confidence-val" class="percent-val">0%</span>
+                    </div>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" id="confidence-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="explanation-box">
+                    <h3>AI Compliance Explanation</h3>
+                    <p id="explanation-text"></p>
+                </div>
+                
+                <button id="reset-btn" class="secondary-btn">New Prediction</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
