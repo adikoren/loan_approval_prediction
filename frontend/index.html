@@ -20,31 +20,31 @@
                     <!-- Standard Numerics -->
                     <div class="input-group">
                         <label for="loan_amount">Loan Amount</label>
-                        <input type="number" id="loan_amount" step="any" placeholder="e.g. 250000" required>
+                        <input type="number" id="loan_amount" step="any" placeholder="e.g. 250000">
                     </div>
                     <div class="input-group">
                         <label for="applicant_income">Applicant Income</label>
-                        <input type="number" id="applicant_income" step="any" placeholder="e.g. 80000" required>
+                        <input type="number" id="applicant_income" step="any" placeholder="e.g. 80000">
                     </div>
                     <div class="input-group">
                         <label for="population">Population</label>
-                        <input type="number" id="population" step="any" required>
+                        <input type="number" id="population" step="any" placeholder="optional">
                     </div>
                     <div class="input-group">
                         <label for="minority_population">Minority Population</label>
-                        <input type="number" id="minority_population" step="any" required>
+                        <input type="number" id="minority_population" step="any" placeholder="optional">
                     </div>
                     <div class="input-group">
                         <label for="hud_median_family_income">HUD Median Family Income</label>
-                        <input type="number" id="hud_median_family_income" step="any" required>
+                        <input type="number" id="hud_median_family_income" step="any" placeholder="optional">
                     </div>
                     <div class="input-group">
                         <label for="tract_to_msamd_income">Tract to MSAMD Income</label>
-                        <input type="number" id="tract_to_msamd_income" step="any" required>
+                        <input type="number" id="tract_to_msamd_income" step="any" placeholder="optional">
                     </div>
                     <div class="input-group">
                         <label for="number_of_owner_occupied_units">Owner Occupied Units</label>
-                        <input type="number" id="number_of_owner_occupied_units" step="any" required>
+                        <input type="number" id="number_of_owner_occupied_units" step="any" placeholder="optional">
                     </div>
                     
                     <!-- A, B, C are sent automatically as null -->
@@ -52,40 +52,178 @@
                     <!-- Geographic & ID Numerics -->
                     <div class="input-group">
                         <label for="census_tract_number">Census Tract Number</label>
-                        <input type="number" id="census_tract_number" step="any" required>
+                        <input type="number" id="census_tract_number" step="any" placeholder="optional">
                     </div>
                     <div class="input-group">
-                        <label for="county">County Code</label>
-                        <input type="number" id="county" step="any" required>
+                        <label for="county">County</label>
+                        <select id="county">
+                            <option value="">-- None --</option>
+                            <option value="Alachua County">Alachua County</option>
+                            <option value="Baker County">Baker County</option>
+                            <option value="Bay County">Bay County</option>
+                            <option value="Bradford County">Bradford County</option>
+                            <option value="Brevard County">Brevard County</option>
+                            <option value="Broward County">Broward County</option>
+                            <option value="Calhoun County">Calhoun County</option>
+                            <option value="Charlotte County">Charlotte County</option>
+                            <option value="Citrus County">Citrus County</option>
+                            <option value="Clay County">Clay County</option>
+                            <option value="Collier County">Collier County</option>
+                            <option value="Columbia County">Columbia County</option>
+                            <option value="DeSoto County">DeSoto County</option>
+                            <option value="Dixie County">Dixie County</option>
+                            <option value="Duval County">Duval County</option>
+                            <option value="Escambia County">Escambia County</option>
+                            <option value="Flagler County">Flagler County</option>
+                            <option value="Franklin County">Franklin County</option>
+                            <option value="Gadsden County">Gadsden County</option>
+                            <option value="Gilchrist County">Gilchrist County</option>
+                            <option value="Glades County">Glades County</option>
+                            <option value="Gulf County">Gulf County</option>
+                            <option value="Hamilton County">Hamilton County</option>
+                            <option value="Hardee County">Hardee County</option>
+                            <option value="Hendry County">Hendry County</option>
+                            <option value="Hernando County">Hernando County</option>
+                            <option value="Highlands County">Highlands County</option>
+                            <option value="Hillsborough County">Hillsborough County</option>
+                            <option value="Holmes County">Holmes County</option>
+                            <option value="Indian River County">Indian River County</option>
+                            <option value="Jackson County">Jackson County</option>
+                            <option value="Jefferson County">Jefferson County</option>
+                            <option value="Lafayette County">Lafayette County</option>
+                            <option value="Lake County">Lake County</option>
+                            <option value="Lee County">Lee County</option>
+                            <option value="Leon County">Leon County</option>
+                            <option value="Levy County">Levy County</option>
+                            <option value="Liberty County">Liberty County</option>
+                            <option value="Madison County">Madison County</option>
+                            <option value="Manatee County">Manatee County</option>
+                            <option value="Marion County">Marion County</option>
+                            <option value="Martin County">Martin County</option>
+                            <option value="Miami-Dade County">Miami-Dade County</option>
+                            <option value="Monroe County">Monroe County</option>
+                            <option value="Nassau County">Nassau County</option>
+                            <option value="Okaloosa County">Okaloosa County</option>
+                            <option value="Okeechobee County">Okeechobee County</option>
+                            <option value="Orange County">Orange County</option>
+                            <option value="Osceola County">Osceola County</option>
+                            <option value="Palm Beach County">Palm Beach County</option>
+                            <option value="Pasco County">Pasco County</option>
+                            <option value="Pinellas County">Pinellas County</option>
+                            <option value="Polk County">Polk County</option>
+                            <option value="Putnam County">Putnam County</option>
+                            <option value="Santa Rosa County">Santa Rosa County</option>
+                            <option value="Sarasota County">Sarasota County</option>
+                            <option value="Seminole County">Seminole County</option>
+                            <option value="St. Johns County">St. Johns County</option>
+                            <option value="St. Lucie County">St. Lucie County</option>
+                            <option value="Sumter County">Sumter County</option>
+                            <option value="Suwannee County">Suwannee County</option>
+                            <option value="Taylor County">Taylor County</option>
+                            <option value="Union County">Union County</option>
+                            <option value="Volusia County">Volusia County</option>
+                            <option value="Wakulla County">Wakulla County</option>
+                            <option value="Walton County">Walton County</option>
+                            <option value="Washington County">Washington County</option>
+                        </select>
                     </div>
                     <div class="input-group">
-                        <label for="msamd">MSAMD</label>
-                        <input type="number" id="msamd" step="any" required>
+                        <label for="msamd">Metro Area (MSAMD)</label>
+                        <select id="msamd">
+                            <option value="">-- None --</option>
+                            <option value="Cape Coral, Fort Myers - FL">Cape Coral, Fort Myers - FL</option>
+                            <option value="Crestview, Fort Walton Beach, Destin - FL">Crestview, Fort Walton Beach, Destin - FL</option>
+                            <option value="Deltona, Daytona Beach, Ormond Beach - FL">Deltona, Daytona Beach, Ormond Beach - FL</option>
+                            <option value="Fort Lauderdale, Pompano Beach, Deerfield Beach - FL">Fort Lauderdale, Pompano Beach, Deerfield Beach - FL</option>
+                            <option value="Gainesville - FL">Gainesville - FL</option>
+                            <option value="Homosassa Springs - FL">Homosassa Springs - FL</option>
+                            <option value="Jacksonville - FL">Jacksonville - FL</option>
+                            <option value="Lakeland, Winter Haven - FL">Lakeland, Winter Haven - FL</option>
+                            <option value="Miami, Miami Beach, Kendall - FL">Miami, Miami Beach, Kendall - FL</option>
+                            <option value="Naples, Immokalee, Marco Island - FL">Naples, Immokalee, Marco Island - FL</option>
+                            <option value="North Port, Sarasota, Bradenton - FL">North Port, Sarasota, Bradenton - FL</option>
+                            <option value="Ocala - FL">Ocala - FL</option>
+                            <option value="Orlando, Kissimmee, Sanford - FL">Orlando, Kissimmee, Sanford - FL</option>
+                            <option value="Palm Bay, Melbourne, Titusville - FL">Palm Bay, Melbourne, Titusville - FL</option>
+                            <option value="Panama City - FL">Panama City - FL</option>
+                            <option value="Pensacola, Ferry Pass, Brent - FL">Pensacola, Ferry Pass, Brent - FL</option>
+                            <option value="Port St. Lucie - FL">Port St. Lucie - FL</option>
+                            <option value="Punta Gorda - FL">Punta Gorda - FL</option>
+                            <option value="Sebastian, Vero Beach - FL">Sebastian, Vero Beach - FL</option>
+                            <option value="Sebring - FL">Sebring - FL</option>
+                            <option value="Tallahassee - FL">Tallahassee - FL</option>
+                            <option value="Tampa, St. Petersburg, Clearwater - FL">Tampa, St. Petersburg, Clearwater - FL</option>
+                            <option value="The Villages - FL">The Villages - FL</option>
+                            <option value="West Palm Beach, Boca Raton, Delray Beach - FL">West Palm Beach, Boca Raton, Delray Beach - FL</option>
+                        </select>
                     </div>
 
                     <!-- Category Ints -->
                     <div class="input-group">
-                        <label for="property_type">Property Type (Code)</label>
-                        <input type="number" id="property_type" required>
+                        <label for="property_type">Property Type</label>
+                        <select id="property_type">
+                            <option value="">-- None --</option>
+                            <option value="1">One-to-four family dwelling (other than manufactured housing)</option>
+                            <option value="2">Manufactured housing</option>
+                            <option value="3">Multifamily dwelling</option>
+                        </select>
                     </div>
                     <div class="input-group">
-                        <label for="lien_status">Lien Status (Code)</label>
-                        <input type="number" id="lien_status" required>
+                        <label for="lien_status">Lien Status</label>
+                        <select id="lien_status">
+                            <option value="">-- None --</option>
+                            <option value="Secured by a first lien">Secured by a first lien</option>
+                            <option value="Secured by a subordinate lien">Secured by a subordinate lien</option>
+                            <option value="Not secured by a lien">Not secured by a lien</option>
+                        </select>
                     </div>
                     <div class="input-group">
-                        <label for="agency">Agency (Code)</label>
-                        <input type="number" id="agency" required>
+                        <label for="agency">Agency</label>
+                        <select id="agency">
+                            <option value="">-- None --</option>
+                            <option value="1">Office of the Comptroller of the Currency</option>
+                            <option value="2">Federal Reserve System</option>
+                            <option value="3">Federal Deposit Insurance Corporation</option>
+                            <option value="5">National Credit Union Administration</option>
+                            <option value="6">Department of Housing and Urban Development</option>
+                            <option value="7">Consumer Financial Protection Bureau</option>
+                        </select>
                     </div>
                     <div class="input-group">
-                        <label for="loan_type">Loan Type (Code)</label>
-                        <input type="number" id="loan_type" required>
+                        <label for="loan_type">Loan Type</label>
+                        <select id="loan_type">
+                            <option value="">-- None --</option>
+                            <option value="1">Conventional</option>
+                            <option value="2">FHA-insured</option>
+                            <option value="3">VA-guaranteed</option>
+                            <option value="4">FSA/RHS-guaranteed</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="loan_purpose">Loan Purpose</label>
+                        <select id="loan_purpose">
+                            <option value="">-- None --</option>
+                            <option value="Refinancing">Refinancing</option>
+                            <option value="Home purchase">Home purchase</option>
+                            <option value="Home improvement">Home improvement</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="owner_occupancy">Owner Occupancy</label>
+                        <select id="owner_occupancy">
+                            <option value="">-- None --</option>
+                            <option value="Owner-occupied as a principal dwelling">Owner-occupied as a principal dwelling</option>
+                            <option value="Not owner-occupied as a principal dwelling">Not owner-occupied as a principal dwelling</option>
+                            <option value="Not applicable">Not applicable</option>
+                        </select>
                     </div>
                     <!-- D is sent automatically as null -->
 
                     <!-- Categorical Strings -->
                     <div class="input-group">
                         <label for="preapproval">Preapproval</label>
-                        <select id="preapproval" required>
+                        <select id="preapproval">
+                            <option value="">-- None --</option>
                             <option value="Preapproval was requested">Requested</option>
                             <option value="Preapproval was not requested">Not Requested</option>
                             <option value="Not applicable">Not Applicable</option>
@@ -93,34 +231,72 @@
                     </div>
                     <div class="input-group">
                         <label for="applicant_ethnicity">Applicant Ethnicity</label>
-                        <input type="text" id="applicant_ethnicity" placeholder="e.g. Not Hispanic or Latino" required>
+                        <select id="applicant_ethnicity">
+                            <option value="">-- None --</option>
+                            <option value="Hispanic or Latino">Hispanic or Latino</option>
+                            <option value="Not Hispanic or Latino">Not Hispanic or Latino</option>
+                            <option value="Information not provided by applicant in mail, internet, or telephone application">Information not provided</option>
+                            <option value="Not applicable">Not applicable</option>
+                            <option value="No co-applicant">No co-applicant</option>
+                        </select>
                     </div>
                     <div class="input-group">
                         <label for="applicant_race_name_1">Applicant Race</label>
-                        <input type="text" id="applicant_race_name_1" placeholder="e.g. White" required>
+                        <select id="applicant_race_name_1">
+                            <option value="">-- None --</option>
+                            <option value="White">White</option>
+                            <option value="Black or African American">Black or African American</option>
+                            <option value="Asian">Asian</option>
+                            <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
+                            <option value="Information not provided">Information not provided</option>
+                            <option value="Not applicable">Not applicable</option>
+                            <option value="No co-applicant">No co-applicant</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </div>
                     <div class="input-group">
                         <label for="applicant_sex">Applicant Sex</label>
-                        <select id="applicant_sex" required>
+                        <select id="applicant_sex">
+                            <option value="">-- None --</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Information not provided">Information not provided</option>
+                            <option value="Not applicable">Not applicable</option>
                         </select>
                     </div>
                     <div class="input-group">
                         <label for="co_applicant_ethnicity">Co-Applicant Ethnicity</label>
-                        <input type="text" id="co_applicant_ethnicity" placeholder="e.g. No co-applicant" required>
+                        <select id="co_applicant_ethnicity">
+                            <option value="">-- None --</option>
+                            <option value="Hispanic or Latino">Hispanic or Latino</option>
+                            <option value="Not Hispanic or Latino">Not Hispanic or Latino</option>
+                            <option value="Information not provided by applicant in mail, internet, or telephone application">Information not provided</option>
+                            <option value="Not applicable">Not applicable</option>
+                            <option value="No co-applicant">No co-applicant</option>
+                        </select>
                     </div>
                     <div class="input-group">
                         <label for="co_applicant_race_name_1">Co-Applicant Race</label>
-                        <input type="text" id="co_applicant_race_name_1" placeholder="e.g. No co-applicant" required>
+                        <select id="co_applicant_race_name_1">
+                            <option value="">-- None --</option>
+                            <option value="White">White</option>
+                            <option value="Black or African American">Black or African American</option>
+                            <option value="Asian">Asian</option>
+                            <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
+                            <option value="Information not provided">Information not provided</option>
+                            <option value="Not applicable">Not applicable</option>
+                            <option value="No co-applicant">No co-applicant</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </div>
                     <div class="input-group">
                         <label for="co_applicant_sex">Co-Applicant Sex</label>
-                        <select id="co_applicant_sex" required>
+                        <select id="co_applicant_sex">
+                            <option value="">-- None --</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="No co-applicant">No co-applicant</option>
+                            <option value="Not applicable">Not applicable</option>
                         </select>
                     </div>
                 </div>

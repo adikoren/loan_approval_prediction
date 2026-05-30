@@ -20,31 +20,33 @@ except Exception as e:
 
 # We use the features standard for our model (adjust if they differ)
 class ApplicantFeatures(BaseModel):
-    loan_amount: float
-    applicant_income: float
-    population: float
-    minority_population: float
-    hud_median_family_income: float
-    tract_to_msamd_income: float
-    number_of_owner_occupied_units: float
+    loan_amount: Optional[float] = None
+    applicant_income: Optional[float] = None
+    population: Optional[float] = None
+    minority_population: Optional[float] = None
+    hud_median_family_income: Optional[float] = None
+    tract_to_msamd_income: Optional[float] = None
+    number_of_owner_occupied_units: Optional[float] = None
     A: Optional[float] = None
     B: Optional[float] = None
     C: Optional[float] = None
-    property_type: int
-    preapproval: str
-    applicant_ethnicity: str
-    applicant_race_name_1: str
-    co_applicant_ethnicity: str
-    co_applicant_race_name_1: str
-    census_tract_number: float
-    county: float
-    msamd: float
-    lien_status: int
-    applicant_sex: str
-    co_applicant_sex: str
-    agency: int
+    property_type: Optional[int] = None
+    loan_purpose: Optional[str] = None
+    owner_occupancy: Optional[str] = None
+    preapproval: Optional[str] = None
+    applicant_ethnicity: Optional[str] = None
+    applicant_race_name_1: Optional[str] = None
+    co_applicant_ethnicity: Optional[str] = None
+    co_applicant_race_name_1: Optional[str] = None
+    census_tract_number: Optional[float] = None
+    county: Optional[str] = None
+    msamd: Optional[str] = None
+    lien_status: Optional[str] = None
+    applicant_sex: Optional[str] = None
+    co_applicant_sex: Optional[str] = None
+    agency: Optional[int] = None
     D: Optional[int] = None
-    loan_type: int
+    loan_type: Optional[int] = None
 
 @app.post("/predict")
 def predict(features: ApplicantFeatures):

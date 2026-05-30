@@ -142,6 +142,20 @@ Pipeline([
 
 ## `rag/` — Retrieval-Augmented Generation
 
+### Knowledge Base — `docs/`
+
+Three real regulatory documents are ingested as the RAG knowledge base:
+
+| File | Source | Chunks |
+|---|---|---|
+| `fha_handbook.pdf` | HUD Handbook 4000.1 (official, downloaded from hud.gov) | 1,433 |
+| `hmda_guidelines.pdf` | HMDA Filing Instructions Guide 2020 (official, downloaded from ffiec.cfpb.gov) | 136 |
+| `fannie_mae_selling_guide.pdf` | Fannie Mae Selling Guide summary (expanded mock — direct PDF download blocked by fanniemae.com) | 3 |
+
+**Total: 1,572 regulation chunks** stored in ChromaDB at `./rag_db/`.
+
+---
+
 ### `rag/ingest.py`
 
 **Purpose:** One-time setup script. Reads all PDFs in `docs/`, chunks them, embeds the chunks, and stores them in ChromaDB.
@@ -160,7 +174,7 @@ python rag/ingest.py
 **Embedding model:** `sentence-transformers/all-MiniLM-L6-v2`
 - Produces 384-dimensional semantic vectors
 - Fast encoding (thousands of chunks per minute on CPU)
-- Free, local, no API key
+- Free, local, no API key required
 
 **Storage:** ChromaDB `PersistentClient` writes to `./rag_db/` — survives server restarts.
 
@@ -177,40 +191,47 @@ def retrieve(query: str, k: int = 3) -> list[str]:
     return results['documents'][0]
 ```
 
-**The query** is built from the decision + key applicant fields (e.g. `"Loan approved. Loan type code: 1. Income: $85000. Amount: $250000."`).
+**The query** is built from the decision + human-readable applicant fields (e.g. `"Loan approved. Loan type: Conventional. Purpose: Home purchase. Applicant income: $85k. Loan amount: $250k."`).
 
 ChromaDB performs cosine similarity search over the stored regulation embeddings and returns the top-k matching text chunks. These chunks become the grounding context for the LLM.
 
-**Module-level initialization:** The `SentenceTransformer` model and ChromaDB client are instantiated once at import time — not per-request — so there's no latency penalty after the first request.
+**Module-level initialization:** The `SentenceTransformer` model and ChromaDB client are instantiated once at import time — not per-request — so there is no latency penalty after the first request.
 
 ---
 
 ### `rag/generator.py`
 
-**Purpose:** Use `google/flan-t5-base` to generate a plain-English explanation of the loan decision, grounded in the retrieved regulation chunks.
+**Purpose:** Build a semantic search query from the loan decision and applicant features, then generate a compliance-grounded explanation using Claude.
+
+**`_readable(features)`**
+Converts integer codes to human-readable strings before they appear in any prompt or query:
+- `loan_type`: `1 → "Conventional"`, `2 → "FHA-insured"`, `3 → "VA-guaranteed"`, `4 → "FSA/RHS-guaranteed"`
+- `property_type`: `1 → "One-to-four family dwelling"`, `2 → "Manufactured housing"`, `3 → "Multifamily dwelling"`
+- `agency`: maps agency codes to full agency names (OCC, FRB, FDIC, NCUA, HUD, CFPB)
+
+**Why:** ChromaDB retrieval is semantic — querying with `"loan_type: 1"` produces worse matches than `"loan_type: Conventional"` because the regulation text uses natural language, not codes.
 
 **`build_query(decision, features)`**
-Constructs the ChromaDB search query string from the API features dict. Uses `loan_type`, `applicant_income`, and `loan_amount` as the key discriminating fields.
+Constructs the ChromaDB search query from all available non-null features, using human-readable values. Includes loan type, purpose, property type, income, loan amount, and lien status where provided.
 
 **`generate_explanation(decision, features, chunks)`**
+
 ```
-Prompt structure:
-  "Explain briefly why a loan application was {DECISION} based on the context.
-   Context: {retrieved_regulation_chunks}
-   Income: ${income}, Loan amount: ${amount}, Loan type code: {type}
-   Explanation:"
+Prompt structure (sent to Claude):
+  "You are a mortgage compliance officer. A loan application was {DECISION}.
+   Applicant details: {human-readable feature summary}
+   Relevant regulation excerpts: {top-3 retrieved chunks}
+   Write a concise 2-3 sentence explanation of why this application was {decision},
+   referencing specific regulation criteria where applicable."
 ```
 
-**Model:** `google/flan-t5-base`
-- Seq2Seq architecture (encoder-decoder), designed for instruction-following
-- `max_length=512` for input (truncated), `max_length=150 / min_length=20` for output
-- Runs entirely locally — no Hugging Face API token or billing required
-- Weights are cached after first download to `~/.cache/huggingface/`
+**Model:** `claude-haiku-4-5-20251001`
+- Fast, low-cost Claude model — ideal for short compliance summaries
+- Produces accurate, regulation-grounded explanations citing DTI ratios, LTV limits, ECOA/fair lending rules, and lien requirements from the retrieved chunks
+- Requires `ANTHROPIC_API_KEY` to be set in the environment before starting the server
 
-**Why Flan-T5 and not GPT-4?**
-- Zero cost, zero rate limits
-- Sufficient capacity for short regulatory summaries
-- Keeps the project self-contained and reproducible without credentials
+**Why Claude instead of Flan-T5?**
+Flan-T5-base (the original model) has limited capacity for instruction-following and tends to produce generic or hallucinated explanations, especially when context is long. Claude Haiku reliably cites retrieved regulation text and produces coherent compliance summaries at low cost and latency.
 
 ---
 
