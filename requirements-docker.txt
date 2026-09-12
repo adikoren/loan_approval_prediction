@@ -1,0 +1,23 @@
+# Slim, pinned requirements for the serving container (app/main.py).
+# Excludes notebook/plotting/dev tooling (jupyter, matplotlib, seaborn) that
+# only src/train.py and src/evaluate.py need at training time.
+#
+# Versions are pinned to match the environment the model was trained and
+# validated in, so the container's scikit-learn/pandas/numpy/joblib exactly
+# match what experiments/model.joblib was serialized with.
+fastapi==0.141.1
+uvicorn[standard]==0.46.0
+pydantic==2.13.3
+pandas==3.0.2
+numpy==2.4.4
+scikit-learn==1.8.0
+joblib==1.5.3
+chromadb==1.5.9
+pdfplumber==0.11.9
+# fastembed: same sentence-transformers/all-MiniLM-L6-v2 model as the
+# original design, served via ONNX runtime instead of full PyTorch — avoids
+# pulling in ~3GB of CUDA runtime libraries for what is CPU-only inference
+# in a container. See rag/ingest.py for details.
+fastembed==0.8.0
+anthropic==1.5.0
+requests

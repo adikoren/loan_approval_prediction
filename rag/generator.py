@@ -57,21 +57,29 @@ def generate_explanation(decision: str, features: dict, chunks: list[str]) -> st
         if v is not None and k not in {"A", "B", "C", "D"}
     )
 
-    message = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=300,
-        messages=[
-            {
-                "role": "user",
-                "content": (
-                    f"You are a mortgage compliance officer. A loan application was {decision.upper()}.\n\n"
-                    f"Applicant details: {feature_summary}\n\n"
-                    f"Relevant regulation excerpts:\n{context}\n\n"
-                    f"Write a concise 2-3 sentence explanation of why this application was {decision}, "
-                    f"referencing specific regulation criteria where applicable."
-                ),
-            }
-        ],
-    )
-
-    return message.content[0].text
+    try:
+        message = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=300,
+            messages=[
+                {
+                    "role": "user",
+                    "content": (
+                        f"You are a mortgage compliance officer. A loan application was {decision.upper()}.\n\n"
+                        f"Applicant details: {feature_summary}\n\n"
+                        f"Relevant regulation excerpts:\n{context}\n\n"
+                        f"Write a concise 2-3 sentence explanation of why this application was {decision}, "
+                        f"referencing specific regulation criteria where applicable."
+                    ),
+                }
+            ],
+        )
+        return message.content[0].text
+    except Exception as e:
+        # Missing/invalid ANTHROPIC_API_KEY, network hiccup, or rate limit —
+        # degrade gracefully instead of failing the whole /predict request.
+        print(f"[rag.generator] Claude call failed: {e}. Returning fallback explanation.")
+        return (
+            f"This application was {decision} based on the applicant's financial profile. "
+            "A detailed regulation-grounded explanation is temporarily unavailable."
+        )

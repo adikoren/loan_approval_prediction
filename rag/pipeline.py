@@ -7,7 +7,11 @@ def explain(decision: str, features: dict) -> str:
     query = build_query(decision, features)
     
     # 2. Retrieve relevant regulation chunks from ChromaDB
-    chunks = retrieve(query, k=3)
+    try:
+        chunks = retrieve(query, k=3)
+    except Exception as e:
+        print(f"[rag.pipeline] Retrieval failed: {e}. Continuing without regulation context.")
+        chunks = []
     
     # 3. Generate explanation using Flan-T5
     explanation = generate_explanation(decision, features, chunks)

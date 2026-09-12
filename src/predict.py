@@ -32,6 +32,62 @@ from src.features import run_all_feature_engineering, get_final_feature_columns
 from src.model import load_model
 
 
+# ---------------------------------------------------------------------------
+# Single-row inference (used by app/main.py to serve live /predict requests)
+# ---------------------------------------------------------------------------
+
+def build_inference_frame(features: dict, train_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Build a one-row DataFrame for a live prediction request that lines up
+    with train_df's raw columns AND dtypes.
+
+    Why this matters: constructing `pd.DataFrame([a_dict])` directly from a
+    JSON request produces `object`-dtype columns (because most values are
+    None for fields the caller didn't supply). Passing that straight into
+    run_all_preprocessing / run_all_feature_engineering breaks numeric ops
+    like np.log1p, which require a real float64 column. Casting every column
+    to train_df's dtype up front makes the single request row behave exactly
+    like a row read out of test.csv.
+    """
+    exclude = {TARGET_COL, ID_COL}
+    raw_cols = [c for c in train_df.columns if c not in exclude]
+
+    row = {c: features.get(c) for c in raw_cols}
+    df = pd.DataFrame([row])
+
+    for c in raw_cols:
+        try:
+            df[c] = df[c].astype(train_df[c].dtype)
+        except (ValueError, TypeError):
+            # Fall back to plain object dtype rather than fail the request
+            df[c] = df[c].astype(object)
+
+    return df
+
+
+def predict_single(features: dict, train_df: pd.DataFrame, pipeline) -> float:
+    """
+    Run one applicant's raw feature dict through the exact same preprocessing
+    + feature engineering pipeline used at training time, and return the
+    model's approval probability.
+
+    `train_df` is passed in (rather than reloaded from disk) so the caller —
+    app/main.py — can load train.csv once at process startup and reuse it
+    across requests instead of re-reading a ~300k row CSV every call.
+    """
+    test_df = build_inference_frame(features, train_df)
+
+    train_clean, test_clean = run_all_preprocessing(train_df.copy(), test_df)
+    train_feat, test_feat = run_all_feature_engineering(train_clean, test_clean)
+
+    feature_cols = get_final_feature_columns(train_feat)
+    available_cols = [c for c in feature_cols if c in test_feat.columns]
+
+    X = test_feat[available_cols].values
+    prob = pipeline.predict_proba(X)[0][1]
+    return float(prob)
+
+
 def predict() -> None:
     """
     End-to-end prediction on unseen test data.

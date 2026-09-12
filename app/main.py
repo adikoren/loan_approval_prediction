@@ -1,24 +1,43 @@
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
-import joblib
 import pandas as pd
-from rag.pipeline import explain
 from typing import Optional
+
+from config import TRAIN_PATH, MODEL_PATH
+from src.model import load_model
+from src.predict import predict_single
+from rag.pipeline import explain
 
 app = FastAPI(title="LoanSight with RAG Documentation")
 
-# Load existing model (assuming experiments/model.joblib exists)
-# If it doesn't exist, this will throw an error when starting the app.
+# --- Load the trained ML pipeline once at startup ---
 try:
-    model_pipeline = joblib.load("experiments/model.joblib")
-    print("Loaded ML model successfully.")
+    model_pipeline = load_model(MODEL_PATH)
 except Exception as e:
     print(f"Warning: Could not load ML model: {e}")
     model_pipeline = None
 
-# We use the features standard for our model (adjust if they differ)
+# --- Load train.csv once at startup ---
+# The preprocessing/feature-engineering pipeline (src/preprocessing.py,
+# src/features.py) always learns its imputation and target-mean-encoding
+# maps from train.csv, exactly as it does in src/predict.py. Loading it
+# once here means every request reuses the same in-memory DataFrame
+# instead of re-reading a ~300k row CSV per call.
+try:
+    train_df = pd.read_csv(TRAIN_PATH, low_memory=False)
+    print(f"Loaded {len(train_df):,} training rows for inference alignment.")
+except Exception as e:
+    print(f"Warning: Could not load training data: {e}")
+    train_df = None
+
+
 class ApplicantFeatures(BaseModel):
     loan_amount: Optional[float] = None
     applicant_income: Optional[float] = None
@@ -48,23 +67,30 @@ class ApplicantFeatures(BaseModel):
     D: Optional[int] = None
     loan_type: Optional[int] = None
 
+
+@app.get("/health")
+def health():
+    return {
+        "status": "ok",
+        "model_loaded": model_pipeline is not None,
+        "train_data_loaded": train_df is not None,
+    }
+
+
 @app.post("/predict")
 def predict(features: ApplicantFeatures):
     features_dict = features.model_dump()
-    
+
     # ML model prediction
-    if model_pipeline is not None:
+    if model_pipeline is not None and train_df is not None:
         try:
-            # The model might expect a specific dataframe format
-            df = pd.DataFrame([features_dict])
-            prob = model_pipeline.predict_proba(df)[0][1]
+            prob = predict_single(features_dict, train_df, model_pipeline)
         except Exception as e:
-            # Fallback if the model breaks due to missing features
             print(f"Model prediction failed: {e}. Falling back to dummy prediction.")
-            prob = 0.82 if features.applicant_income > features.loan_amount * 0.2 else 0.45
+            prob = 0.82 if (features.applicant_income or 0) > (features.loan_amount or 0) * 0.2 else 0.45
     else:
-        # Dummy prediction if model wasn't loaded
-        prob = 0.82 if features.applicant_income > features.loan_amount * 0.2 else 0.45
+        # Dummy prediction if model/training data wasn't loaded
+        prob = 0.82 if (features.applicant_income or 0) > (features.loan_amount or 0) * 0.2 else 0.45
 
     decision = "approved" if prob >= 0.5 else "denied"
 
@@ -74,10 +100,12 @@ def predict(features: ApplicantFeatures):
     return {
         "decision": decision,
         "confidence": round(prob, 3),
-        "explanation": explanation
+        "explanation": explanation,
     }
 
+
 app.mount("/static", StaticFiles(directory="frontend"), name="frontend")
+
 
 @app.get("/")
 def read_root():

@@ -1,18 +1,20 @@
 import chromadb
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
 
-EMBED_MODEL = 'all-MiniLM-L6-v2'
+# Same model as ingest.py — served via fastembed's ONNX runtime (see
+# ingest.py for why this replaced sentence-transformers/torch).
+EMBED_MODEL = 'sentence-transformers/all-MiniLM-L6-v2'
 DB_PATH = "./rag_db"
 COLLECTION = "loan_regulations"
 
 # Initialize model and database collection
-model = SentenceTransformer(EMBED_MODEL)
+model = TextEmbedding(model_name=EMBED_MODEL)
 client = chromadb.PersistentClient(path=DB_PATH)
 collection = client.get_or_create_collection(COLLECTION)
 
 def retrieve(query: str, k: int = 3) -> list[str]:
     """Retrieves top-k relevant chunks from ChromaDB for a given query."""
-    query_vec = model.encode([query]).tolist()
+    query_vec = [vec.tolist() for vec in model.embed([query])]
     results = collection.query(query_embeddings=query_vec, n_results=k)
     
     # Return empty list if no results

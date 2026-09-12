@@ -1,12 +1,17 @@
 import chromadb
 import pdfplumber
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
 import glob
 import os
 
 CHUNK_SIZE = 300    # words per chunk
 OVERLAP = 50        # word overlap between chunks
-EMBED_MODEL = 'all-MiniLM-L6-v2'
+# Same model as the original design (sentence-transformers/all-MiniLM-L6-v2,
+# 384-dim), served through fastembed's ONNX runtime instead of full PyTorch.
+# This keeps the documented embedding choice but avoids pulling in torch +
+# ~3GB of CUDA runtime libraries for what is pure CPU inference in a
+# container — see EXPLANATION.md for the original model rationale.
+EMBED_MODEL = 'sentence-transformers/all-MiniLM-L6-v2'
 DB_PATH = "./rag_db"
 COLLECTION = "loan_regulations"
 
@@ -29,14 +34,14 @@ def ingest_pdf(pdf_path: str):
         print(f"Warning: No text extracted from {pdf_path}")
         return
         
-    model = SentenceTransformer(EMBED_MODEL)
+    model = TextEmbedding(model_name=EMBED_MODEL)
     client = chromadb.PersistentClient(path=DB_PATH)
     collection = client.get_or_create_collection(COLLECTION)
-    
+
     # ChromaDB requires string IDs
     collection.add(
         documents=chunks,
-        embeddings=model.encode(chunks).tolist(),
+        embeddings=[vec.tolist() for vec in model.embed(chunks)],
         ids=[f"{os.path.basename(pdf_path)}_{i}" for i in range(len(chunks))]
     )
     print(f"Successfully ingested {len(chunks)} chunks from {pdf_path}")
