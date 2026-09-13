@@ -8,8 +8,6 @@ the model artefact.
 
 import os
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.metrics import (
     classification_report,
     accuracy_score,
@@ -85,6 +83,9 @@ def plot_confusion_matrix(
     if class_names is None:
         class_names = ["Rejected", "Approved"]
 
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+
     cm = confusion_matrix(y_true, y_pred)
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
 
@@ -121,6 +122,8 @@ def plot_roc_curve(
     specificity across all decision thresholds — far more informative than
     a single accuracy number.
     """
+    import matplotlib.pyplot as plt
+
     y_prob = pipeline.predict_proba(X_val)[:, 1]
     fpr, tpr, _ = roc_curve(y_val, y_prob)
     auc = roc_auc_score(y_val, y_prob)

@@ -7,9 +7,13 @@
 from src.preprocessing import run_all_preprocessing
 from src.features import run_all_feature_engineering, get_final_feature_columns
 from src.model import build_pipeline, save_model, load_model
-from src.train import train
-from src.evaluate import evaluate
 from src.predict import predict
+
+try:
+    from src.train import train
+    from src.evaluate import evaluate
+except ImportError:
+    pass
 
 __all__ = [
     "run_all_preprocessing",
@@ -18,7 +22,5 @@ __all__ = [
     "build_pipeline",
     "save_model",
     "load_model",
-    "train",
-    "evaluate",
     "predict",
 ]
