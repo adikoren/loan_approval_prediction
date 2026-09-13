@@ -4,6 +4,7 @@ WORKDIR /app
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
+    FASTEMBED_CACHE_PATH=/app/.cache/fastembed \
     HF_HOME=/app/.cache/huggingface
 
 # Install Python dependencies first so this layer is cached across code changes.
@@ -27,9 +28,13 @@ COPY experiments/model.joblib ./experiments/model.joblib
 COPY data/train.csv.gz ./data/train.csv.gz
 RUN gzip -d ./data/train.csv.gz
 
-# Vector store is built at container startup (see docker-entrypoint.sh) —
-# create the directory so the empty-check in the entrypoint is well-defined.
-RUN mkdir -p /app/rag_db
+# Pre-populated ChromaDB vector store so the container starts instantly
+# without running ingest or downloading models at container boot time
+COPY rag_db.tar.gz .
+RUN tar -xzf rag_db.tar.gz && rm rag_db.tar.gz
+
+# Pre-download the fastembed embedding model at build time
+RUN python -c "from fastembed import TextEmbedding; TextEmbedding('sentence-transformers/all-MiniLM-L6-v2')"
 
 EXPOSE 8000
 
