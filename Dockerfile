@@ -39,6 +39,6 @@ RUN python -c "from fastembed import TextEmbedding; TextEmbedding('sentence-tran
 EXPOSE 8000
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=90s --retries=3 \
-    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=3)" || exit 1
+    CMD python -c "import os, urllib.request; p = os.environ.get('PORT', '8000'); urllib.request.urlopen(f'http://localhost:{p}/health', timeout=3)" || exit 1
 
 ENTRYPOINT ["./docker-entrypoint.sh"]
