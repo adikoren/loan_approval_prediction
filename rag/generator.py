@@ -37,12 +37,27 @@ def _readable(features: dict) -> dict:
     return f
 
 
-def build_query(decision: str, features: dict, confidence: float | None = None) -> str:
-    """Build a semantic search query from the decision and key applicant features."""
+def build_query(
+    decision: str,
+    features: dict,
+    confidence: float | None = None,
+    approval_probability: float | None = None,
+) -> str:
+    """Build a semantic search query from the decision and key applicant features.
+
+    `confidence` and `approval_probability` are distinct: approval_probability
+    is the raw model score for the positive (approved) class, while confidence
+    is how sure the model is in whichever decision was actually made (i.e.
+    1 - approval_probability when the decision is a denial). Conflating the
+    two under one number previously made e.g. a denial with a 12% approval
+    probability read as "12% confidence" — actually 88% confidence in denial.
+    """
     f = _readable(features)
     parts = [f"Loan application {decision}."]
     if confidence is not None:
-        parts.append(f"Model confidence: {confidence * 100:.0f}%.")
+        parts.append(f"Model confidence in this {decision} decision: {confidence * 100:.0f}%.")
+    if approval_probability is not None:
+        parts.append(f"Raw model approval probability: {approval_probability * 100:.0f}%.")
     if f.get("loan_type"):
         parts.append(f"Loan type: {f['loan_type']}.")
     if f.get("loan_purpose"):
@@ -74,6 +89,11 @@ that are not present in the provided data.
 exist because HMDA requires lenders to collect them, not because they are legitimate underwriting \
 criteria. Never cite a protected characteristic as a reason for the outcome, and never imply one was \
 an appropriate basis for the model's prediction.
+- Never state or imply that a protected characteristic "played no role," "had no effect," or was \
+"not a factor" in the outcome — that cannot be verified from the information available to you, and an \
+unverified claim of that kind is itself misleading. If asked to address this, say plainly that whether \
+protected characteristics influenced the model's output cannot be confirmed from this explanation alone \
+and would require a formal fair-lending review of the model.
 - Clearly distinguish the ML model's statistical output from a legally valid, compliant underwriting \
 decision — this is a research/portfolio demo, not a real adverse-action determination.
 - Reference the retrieved regulation excerpts only where they are genuinely relevant to this case; do \
@@ -82,16 +102,30 @@ not fabricate a regulatory citation that isn't supported by the excerpts.
 so explicitly rather than guessing.
 - Note that a human/legal fair-lending and compliance review would still be required before any real \
 lending decision.
-- Keep the tone professional and concise: 3-4 sentences."""
+- Keep the tone professional and concise: 3-4 sentences.
+- Write in plain prose only — no Markdown (no "**bold**", "#" headings, or "-"/"*" bullet lists)."""
 
 
 def generate_explanation(
-    decision: str, features: dict, chunks: list[str], confidence: float | None = None
+    decision: str,
+    features: dict,
+    chunks: list[dict],
+    confidence: float | None = None,
+    approval_probability: float | None = None,
 ) -> str:
-    """Generate a compliance explanation grounded in regulation chunks using Claude."""
+    """Generate a compliance explanation grounded in regulation chunks using Claude.
+
+    `chunks` is a list of {"source": ..., "chunk_id": ..., "text": ...} dicts
+    (see rag/retriever.py) — already filtered to sources relevant to this
+    application's loan type.
+    """
     f = _readable(features)
 
-    context = "\n\n".join(chunks) if chunks else "No regulation context available."
+    context = (
+        "\n\n".join(f"[{c['source']}] {c['text']}" for c in chunks)
+        if chunks
+        else "No regulation context available."
+    )
 
     feature_summary = ", ".join(
         f"{k.replace('_', ' ')}: {v}"
@@ -101,9 +135,13 @@ def generate_explanation(
     if not feature_summary:
         feature_summary = "No application fields were provided."
 
-    confidence_line = (
-        f"Model confidence: {confidence * 100:.0f}%\n" if confidence is not None else ""
-    )
+    # See build_query() for why these are two distinct numbers, not one.
+    outcome_lines = []
+    if confidence is not None:
+        outcome_lines.append(f"Model confidence in this {decision} decision: {confidence * 100:.0f}%")
+    if approval_probability is not None:
+        outcome_lines.append(f"Raw model approval probability: {approval_probability * 100:.0f}%")
+    outcome_block = "\n".join(outcome_lines)
 
     try:
         message = client.messages.create(
@@ -115,7 +153,7 @@ def generate_explanation(
                     "role": "user",
                     "content": (
                         f"Model outcome: {decision.upper()}\n"
-                        f"{confidence_line}\n"
+                        f"{outcome_block}\n\n"
                         f"Submitted application data:\n{feature_summary}\n\n"
                         f"Retrieved regulation/compliance excerpts:\n{context}\n\n"
                         f"Write the compliance explanation now."

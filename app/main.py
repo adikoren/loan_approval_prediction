@@ -96,13 +96,27 @@ def predict(features: ApplicantFeatures):
 
     decision = "approved" if prob >= 0.5 else "denied"
 
+    # approval_probability is the raw model score for the positive (approved)
+    # class; confidence is how sure the model is in whichever decision was
+    # actually made. These are the same number only when the decision is
+    # "approved" — for a denial (prob < 0.5), confidence is 1 - prob, not
+    # prob itself. Previously "confidence" was always just prob, so e.g. a
+    # denial with prob=0.12 displayed as "12% confidence" — actually 88%
+    # confidence in that denial.
+    approval_probability = prob
+    confidence = approval_probability if decision == "approved" else 1.0 - approval_probability
+
     # RAG Explanation Layer
-    explanation = explain(decision, features_dict, confidence=prob)
+    rag_result = explain(
+        decision, features_dict, confidence=confidence, approval_probability=approval_probability
+    )
 
     return {
         "decision": decision,
-        "confidence": round(prob, 3),
-        "explanation": explanation,
+        "confidence": round(confidence, 3),
+        "approval_probability": round(approval_probability, 3),
+        "explanation": rag_result["explanation"],
+        "retrieved_sources": rag_result["sources"],
     }
 
 

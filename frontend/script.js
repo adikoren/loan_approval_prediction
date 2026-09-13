@@ -1,3 +1,67 @@
+// Renders a small, safe subset of Markdown (bold, bullet lists, headings,
+// paragraphs) to HTML for the AI-generated explanation. The explanation
+// isn't user input, but is escaped first regardless so any literal <, >, or
+// & in it can never be interpreted as markup — only the fixed set of tags
+// this function itself introduces below can ever appear.
+function escapeHtml(str) {
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function renderInline(text) {
+    return text
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/__(.+?)__/g, '<strong>$1</strong>');
+}
+
+function renderMarkdown(raw) {
+    const lines = escapeHtml(raw).split(/\r?\n/);
+    const htmlParts = [];
+    let listItems = [];
+    let paragraphLines = [];
+
+    function flushList() {
+        if (listItems.length) {
+            htmlParts.push('<ul>' + listItems.map((item) => `<li>${renderInline(item)}</li>`).join('') + '</ul>');
+            listItems = [];
+        }
+    }
+    function flushParagraph() {
+        if (paragraphLines.length) {
+            htmlParts.push(`<p>${renderInline(paragraphLines.join(' '))}</p>`);
+            paragraphLines = [];
+        }
+    }
+
+    for (const line of lines) {
+        const trimmed = line.trim();
+        const bulletMatch = trimmed.match(/^[-*]\s+(.*)$/);
+        const headingMatch = trimmed.match(/^#{1,6}\s+(.*)$/);
+
+        if (bulletMatch) {
+            flushParagraph();
+            listItems.push(bulletMatch[1]);
+        } else if (headingMatch) {
+            flushParagraph();
+            flushList();
+            htmlParts.push(`<p><strong>${renderInline(headingMatch[1])}</strong></p>`);
+        } else if (trimmed === '') {
+            flushParagraph();
+            flushList();
+        } else {
+            flushList();
+            paragraphLines.push(trimmed);
+        }
+    }
+    flushParagraph();
+    flushList();
+
+    return htmlParts.join('') || `<p>${renderInline(escapeHtml(raw))}</p>`;
+}
+
 // Real records from the model's held-out test set. Field keys match the
 // existing form input IDs exactly, and values use each field's existing
 // payload representation (see script.js's submit handler) — e.g. loan_amount
@@ -376,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 40);
             }, 100);
 
-            explanationText.textContent = data.explanation;
+            explanationText.innerHTML = renderMarkdown(data.explanation);
 
         } catch (error) {
             console.error('Error:', error);
