@@ -15,6 +15,32 @@
         </header>
 
         <main class="card">
+            <section class="positioning-note">
+                <h2 class="positioning-heading">Built for lender workflows</h2>
+                <p class="positioning-body">
+                    LoanSight is an ML decision-support demo built around HMDA data already available in
+                    lenders' internal systems.
+                </p>
+                <p class="positioning-body">
+                    To explore the model, fill the application manually or select one of 10 real examples from
+                    the model's held-out test set. The form will be populated automatically and can be edited
+                    before running the prediction.
+                </p>
+                <p class="positioning-disclaimer">
+                    Research and portfolio demonstration only. Not intended to replace underwriting, fair-lending,
+                    legal, or compliance review.
+                </p>
+            </section>
+
+            <section class="example-applications">
+                <div class="input-group">
+                    <label for="application-select">Select an application</label>
+                    <select id="application-select">
+                        <option value="manual">Fill manually</option>
+                    </select>
+                </div>
+            </section>
+
             <form id="loan-form">
                 <div class="form-grid">
                     <!-- Standard Numerics -->
@@ -163,9 +189,9 @@
                         <label for="property_type">Property Type</label>
                         <select id="property_type">
                             <option value="">-- None --</option>
-                            <option value="1">One-to-four family dwelling (other than manufactured housing)</option>
-                            <option value="2">Manufactured housing</option>
-                            <option value="3">Multifamily dwelling</option>
+                            <option value="One-to-four family dwelling (other than manufactured housing)">One-to-four family dwelling (other than manufactured housing)</option>
+                            <option value="Manufactured housing">Manufactured housing</option>
+                            <option value="Multifamily dwelling">Multifamily dwelling</option>
                         </select>
                     </div>
                     <div class="input-group">
@@ -181,22 +207,22 @@
                         <label for="agency">Agency</label>
                         <select id="agency">
                             <option value="">-- None --</option>
-                            <option value="1">Office of the Comptroller of the Currency</option>
-                            <option value="2">Federal Reserve System</option>
-                            <option value="3">Federal Deposit Insurance Corporation</option>
-                            <option value="5">National Credit Union Administration</option>
-                            <option value="6">Department of Housing and Urban Development</option>
-                            <option value="7">Consumer Financial Protection Bureau</option>
+                            <option value="Office of the Comptroller of the Currency">Office of the Comptroller of the Currency</option>
+                            <option value="Federal Reserve System">Federal Reserve System</option>
+                            <option value="Federal Deposit Insurance Corporation">Federal Deposit Insurance Corporation</option>
+                            <option value="National Credit Union Administration">National Credit Union Administration</option>
+                            <option value="Department of Housing and Urban Development">Department of Housing and Urban Development</option>
+                            <option value="Consumer Financial Protection Bureau">Consumer Financial Protection Bureau</option>
                         </select>
                     </div>
                     <div class="input-group">
                         <label for="loan_type">Loan Type</label>
                         <select id="loan_type">
                             <option value="">-- None --</option>
-                            <option value="1">Conventional</option>
-                            <option value="2">FHA-insured</option>
-                            <option value="3">VA-guaranteed</option>
-                            <option value="4">FSA/RHS-guaranteed</option>
+                            <option value="Conventional">Conventional</option>
+                            <option value="FHA-insured">FHA-insured</option>
+                            <option value="VA-guaranteed">VA-guaranteed</option>
+                            <option value="FSA/RHS-guaranteed">FSA/RHS-guaranteed</option>
                         </select>
                     </div>
                     <div class="input-group">
@@ -248,7 +274,7 @@
                             <option value="Black or African American">Black or African American</option>
                             <option value="Asian">Asian</option>
                             <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
-                            <option value="Information not provided">Information not provided</option>
+                            <option value="Information not provided by applicant in mail, Internet, or telephone application">Information not provided</option>
                             <option value="Not applicable">Not applicable</option>
                             <option value="No co-applicant">No co-applicant</option>
                             <option value="Other">Other</option>
@@ -283,7 +309,7 @@
                             <option value="Black or African American">Black or African American</option>
                             <option value="Asian">Asian</option>
                             <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
-                            <option value="Information not provided">Information not provided</option>
+                            <option value="Information not provided by applicant in mail, Internet, or telephone application">Information not provided</option>
                             <option value="Not applicable">Not applicable</option>
                             <option value="No co-applicant">No co-applicant</option>
                             <option value="Other">Other</option>

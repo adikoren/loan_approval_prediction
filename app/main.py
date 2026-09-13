@@ -50,7 +50,7 @@ class ApplicantFeatures(BaseModel):
     A: Optional[float] = None
     B: Optional[float] = None
     C: Optional[float] = None
-    property_type: Optional[int] = None
+    property_type: Optional[str] = None
     loan_purpose: Optional[str] = None
     owner_occupancy: Optional[str] = None
     preapproval: Optional[str] = None
@@ -64,9 +64,9 @@ class ApplicantFeatures(BaseModel):
     lien_status: Optional[str] = None
     applicant_sex: Optional[str] = None
     co_applicant_sex: Optional[str] = None
-    agency: Optional[int] = None
+    agency: Optional[str] = None
     D: Optional[int] = None
-    loan_type: Optional[int] = None
+    loan_type: Optional[str] = None
 
 
 @app.get("/health")

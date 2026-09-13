@@ -60,6 +60,39 @@ header p {
     transition: all 0.3s ease;
 }
 
+/* Positioning copy */
+.positioning-note {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.positioning-heading {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.6rem;
+}
+
+.positioning-body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.positioning-disclaimer {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Example applications */
+.example-applications {
+    margin-bottom: 2rem;
+}
+
 .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
