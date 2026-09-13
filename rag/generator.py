@@ -1,3 +1,5 @@
+import os
+
 import anthropic
 
 LOAN_TYPE_MAP = {1: "Conventional", 2: "FHA-insured", 3: "VA-guaranteed", 4: "FSA/RHS-guaranteed"}
@@ -11,7 +13,16 @@ AGENCY_MAP = {
     7: "Consumer Financial Protection Bureau",
 }
 
-client = anthropic.Anthropic()
+# Some Anthropic Console organizations issue API keys that are not scoped to
+# a single workspace; the API then requires every request to carry an
+# anthropic-workspace-id header naming which workspace to bill/attribute the
+# call to (the API's own 400 response names this exact fix). Optional: if
+# ANTHROPIC_WORKSPACE_ID isn't set, no header is sent and behavior is
+# unchanged for keys that are already workspace-scoped.
+_workspace_id = os.environ.get("ANTHROPIC_WORKSPACE_ID")
+_default_headers = {"anthropic-workspace-id": _workspace_id} if _workspace_id else None
+
+client = anthropic.Anthropic(default_headers=_default_headers)
 
 
 def _readable(features: dict) -> dict:
@@ -135,6 +146,23 @@ def generate_explanation(
             "[rag.generator] ANTHROPIC_API_KEY was rejected by the Anthropic "
             f"API (invalid or revoked key): {e}. "
             "Returning fallback explanation."
+        )
+        return (
+            f"This application was {decision} based on the applicant's financial profile. "
+            "A detailed regulation-grounded explanation is temporarily unavailable."
+        )
+    except anthropic.BadRequestError as e:
+        # Observed in production: some Anthropic Console organizations issue
+        # API keys that aren't scoped to a single workspace, and the API
+        # rejects every request with a 400 until either the key is re-issued
+        # as workspace-scoped, or the request carries an
+        # anthropic-workspace-id header (see ANTHROPIC_WORKSPACE_ID above).
+        print(
+            "[rag.generator] Claude API rejected the request as malformed "
+            f"(400): {e}. If this mentions workspace scoping, either "
+            "regenerate ANTHROPIC_API_KEY as a workspace-scoped key in the "
+            "Anthropic Console, or set ANTHROPIC_WORKSPACE_ID in the "
+            "deployment environment. Returning fallback explanation."
         )
         return (
             f"This application was {decision} based on the applicant's financial profile. "
