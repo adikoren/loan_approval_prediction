@@ -3,6 +3,7 @@ data/*.csv
 experiments/logs/
 experiments/*.joblib
 !experiments/model.joblib
+!experiments/preprocessor.joblib
 __pycache__/
 *.pyc
 .env

@@ -21,12 +21,11 @@ COPY docs ./docs
 COPY docker-entrypoint.sh .
 RUN chmod +x docker-entrypoint.sh
 
-# Model artifact + the training data it needs to align inference requests
-# against (see src/predict.py — target-mean encodings are learned from
-# train.csv at request time, matching the src/predict.py batch contract).
+# Model artifacts — preprocessor.joblib bakes all encoding maps from train.csv
+# at image build time (~145 KB), eliminating the need to ship train.csv (~500 MB)
+# or load it at runtime.  This keeps container memory well below 512 MB.
 COPY experiments/model.joblib ./experiments/model.joblib
-COPY data/train.csv.gz ./data/train.csv.gz
-RUN gzip -d ./data/train.csv.gz
+COPY experiments/preprocessor.joblib ./experiments/preprocessor.joblib
 
 # Pre-populated ChromaDB vector store so the container starts instantly
 # without running ingest or downloading models at container boot time

@@ -7,13 +7,17 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
-import pandas as pd
+
 from typing import Optional
 
-from config import TRAIN_PATH, MODEL_PATH
+import joblib
+
+from config import MODEL_PATH
 from src.model import load_model
-from src.predict import predict_single
+from src.preprocessor import PreprocessorFitter
 from rag.pipeline import explain
+
+PREPROCESSOR_PATH = "experiments/preprocessor.joblib"
 
 app = FastAPI(title="LoanSight with RAG Documentation")
 
@@ -24,18 +28,15 @@ except Exception as e:
     print(f"Warning: Could not load ML model: {e}")
     model_pipeline = None
 
-# --- Load train.csv once at startup ---
-# The preprocessing/feature-engineering pipeline (src/preprocessing.py,
-# src/features.py) always learns its imputation and target-mean-encoding
-# maps from train.csv, exactly as it does in src/predict.py. Loading it
-# once here means every request reuses the same in-memory DataFrame
-# instead of re-reading a ~300k row CSV per call.
+# --- Load pre-fitted preprocessor (~145 KB) instead of train.csv (~500 MB) ---
+# PreprocessorFitter bakes all encoding maps from train at build time.
+# This keeps startup memory well within the 512 MB DigitalOcean Basic tier.
 try:
-    train_df = pd.read_csv(TRAIN_PATH, low_memory=False)
-    print(f"Loaded {len(train_df):,} training rows for inference alignment.")
+    preprocessor: PreprocessorFitter = joblib.load(PREPROCESSOR_PATH)
+    print(f"Loaded preprocessor from {PREPROCESSOR_PATH}")
 except Exception as e:
-    print(f"Warning: Could not load training data: {e}")
-    train_df = None
+    print(f"Warning: Could not load preprocessor: {e}")
+    preprocessor = None
 
 
 class ApplicantFeatures(BaseModel):
@@ -73,7 +74,7 @@ def health():
     return {
         "status": "ok",
         "model_loaded": model_pipeline is not None,
-        "train_data_loaded": train_df is not None,
+        "preprocessor_loaded": preprocessor is not None,
     }
 
 
@@ -81,15 +82,16 @@ def health():
 def predict(features: ApplicantFeatures):
     features_dict = features.model_dump()
 
-    # ML model prediction
-    if model_pipeline is not None and train_df is not None:
+    # ML model prediction via lightweight preprocessor (no train.csv needed)
+    if model_pipeline is not None and preprocessor is not None:
         try:
-            prob = predict_single(features_dict, train_df, model_pipeline)
+            X = preprocessor.transform_single(features_dict)
+            prob = float(model_pipeline.predict_proba(X)[0, 1])
         except Exception as e:
             print(f"Model prediction failed: {e}. Falling back to dummy prediction.")
             prob = 0.82 if (features.applicant_income or 0) > (features.loan_amount or 0) * 0.2 else 0.45
     else:
-        # Dummy prediction if model/training data wasn't loaded
+        # Dummy prediction if model/preprocessor wasn't loaded
         prob = 0.82 if (features.applicant_income or 0) > (features.loan_amount or 0) * 0.2 else 0.45
 
     decision = "approved" if prob >= 0.5 else "denied"
