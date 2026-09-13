@@ -8,10 +8,10 @@
 fastapi==0.141.1
 uvicorn[standard]==0.46.0
 pydantic==2.13.3
-pandas==3.0.2
-numpy==2.4.4
-scikit-learn==1.8.0
-joblib==1.5.3
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.5.1
+joblib==1.4.2
 chromadb==1.5.9
 pdfplumber==0.11.9
 # fastembed: same sentence-transformers/all-MiniLM-L6-v2 model as the
