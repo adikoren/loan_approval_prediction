@@ -24,7 +24,8 @@ RUN chmod +x docker-entrypoint.sh
 # against (see src/predict.py — target-mean encodings are learned from
 # train.csv at request time, matching the src/predict.py batch contract).
 COPY experiments/model.joblib ./experiments/model.joblib
-COPY data/train.csv ./data/train.csv
+COPY data/train.csv.gz ./data/train.csv.gz
+RUN gzip -d ./data/train.csv.gz
 
 # Vector store is built at container startup (see docker-entrypoint.sh) —
 # create the directory so the empty-check in the entrypoint is well-defined.
