@@ -97,7 +97,7 @@ def predict(features: ApplicantFeatures):
     decision = "approved" if prob >= 0.5 else "denied"
 
     # RAG Explanation Layer
-    explanation = explain(decision, features_dict)
+    explanation = explain(decision, features_dict, confidence=prob)
 
     return {
         "decision": decision,

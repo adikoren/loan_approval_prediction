@@ -12,7 +12,11 @@ OVERLAP = 50        # word overlap between chunks
 # ~3GB of CUDA runtime libraries for what is pure CPU inference in a
 # container — see EXPLANATION.md for the original model rationale.
 EMBED_MODEL = 'sentence-transformers/all-MiniLM-L6-v2'
-DB_PATH = "./rag_db"
+# Anchored to the project root so this always writes to the same path
+# rag/retriever.py reads from, regardless of the process's cwd when this
+# script is invoked.
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(PROJECT_ROOT, "rag_db")
 COLLECTION = "loan_regulations"
 
 def chunk_text(text: str) -> list[str]:

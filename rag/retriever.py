@@ -1,10 +1,19 @@
+import os
+
 import chromadb
 from fastembed import TextEmbedding
 
 # Same model as ingest.py — served via fastembed's ONNX runtime (see
 # ingest.py for why this replaced sentence-transformers/torch).
 EMBED_MODEL = 'sentence-transformers/all-MiniLM-L6-v2'
-DB_PATH = "./rag_db"
+# Anchored to the project root (parent of this package) rather than a
+# cwd-relative "./rag_db" — a relative path silently resolves to whatever
+# directory the process happened to be launched from, and chromadb's
+# get_or_create_collection() won't error on a wrong/empty path, it just
+# returns an empty collection, so retrieval silently returns zero chunks
+# instead of failing loudly.
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(PROJECT_ROOT, "rag_db")
 COLLECTION = "loan_regulations"
 
 # Initialize model and database collection
