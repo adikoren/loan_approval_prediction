@@ -1,0 +1,764 @@
+SOURCE: VA Pamphlet 26-7, Revised — Lender's Handbook
+ISSUER: U.S. Department of Veterans Affairs, Veterans Benefits Administration (VBA), Loan Guaranty Service (LGY)
+DOCUMENT: VA Pamphlet VAP26-7, Chapter 4 — Credit Underwriting (Topics 1-4, partial; official chapter continues beyond this excerpt)
+RETRIEVED FROM: https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000330850/VA-Pamphlet-VAP26-7-Chapter-04-Credit-Underwriting
+LINKED FROM (official VA index): https://www.benefits.va.gov/homeloans/lenders.asp -> "Lender's Handbook"
+DOCUMENT TYPE: VA-specific underwriting guidance
+NOTE: This is the official VA Pamphlet 26-7 Lender's Handbook, published by VA on its own
+KnowVA knowledge base (the legacy WARMS URL now redirects to this same KnowVA system).
+Extracted verbatim; truncated after Topic 4 subsection (a)-(b) due to article length —
+this is a genuine partial excerpt, not a full chapter reproduction.
+
+================================================================================
+
+Chapter 4. Credit Underwriting
+
+Topic 1. General Underwriting Information
+Topic 2. Income – Required Documentation and Analysis
+Topic 3. Income Taxes and Other Deductions
+Topic 4. Assets and Closing Requirements
+Topic 5. Debts and Obligations
+Topic 6. Debts Owed to the Federal Government
+Topic 7. Credit History – Required Documentation and Analysis
+Topic 8. Automated Underwriting Cases (AUS)
+Topic 9. How to Complete VA Form 26-6393, Loan Analysis
+Topic 10. How to Analyze the Information on VA Form 26-6393, Loan Analysis
+ 
+
+Topic 1. General Underwriting Information
+Change Date:
+
+February 22, 2019
+
+This chapter has been revised in its entirety.
+
+a. Underwriting Information
+
+VA Underwriting Standards require lenders to always utilize the following guidance when underwriting VA-guaranteed loans:
+
+Lenders are encouraged to make VA loans to all qualified Veterans who apply. VA’s underwriting standards are intended to provide guidelines for underwriters. Decisions must be based on sound application of the standards, and underwriters are expected to use good judgment and flexibility in applying underwriting guidelines. Not all possible circumstances are addressed therefore, underwriters must apply reasonable judgment and flexibility in administering this important Veterans’ benefit.
+
+b. Basic Requirements
+
+By law, VA may only guarantee a loan when it is possible to determine that the Veteran is a satisfactory credit risk, and has present or verified anticipated income that bears a proper relation to the anticipated terms of repayment.
+
+VA’s underwriting standards are incorporated into VA regulations at 38 C.F.R. 36.4340 and explained in this chapter. This chapter addresses the procedures for verifications and analysis involved in underwriting a VA-guaranteed loan. In the event the lender fails to perform their responsibilities, VA may take administrative actions including removal of authority to underwrite and close VA loans.
+
+c. Lender’s Responsibility
+
+Lenders are responsible for:
+
+developing all credit information,
+
+properly obtaining all required verifications and the credit report,
+
+ensuring the accuracy of all information on which the loan decision is based,
+
+complying with the law and regulations governing VA’s underwriting standards, and with VA’s underwriting policies, procedures, and guidelines, and certifying as to compliance with all of the above.
+
+d. Lender’s Procedures
+
+Digital signatures can be accepted as an original signature or wet signature as defined by the Electronic Signatures in Global and National Commerce Act, commonly referred to as the E- sign Act.
+
+The procedures on the table below address only the credit underwriting of the loan. Chapter 5 of this handbook provides all procedures that must be completed when making a VA loan.
+
+Table 1: Lender’s Credit Underwriting Procedures
+
+Step
+
+	
+
+Action
+
+1
+
+	
+
+Initiate the VA and Credit Alert Interactive Voice Response System (CAIVRS) inquiries described in Topic 4, Subsection c of this chapter.
+
+2
+
+	
+
+Obtain all necessary verifications.
+
+The borrower’s authorization can be obtained separately for the lender’s required verifications, or on one blanket authorization form.
+
+The Certificate of Eligibility (COE) obtained from WebLGY provides verification of the amount of the Veteran’s available entitlement, verification of exempt/non-exempt from the VA Funding Fee, and the amount of VA monthly service connected disability compensation. Order the COE before ordering the VA appraisal.
+
+The tri-merged credit report and verifications can be ordered by the lender or its agent or a party designated by the lender to perform that function. However, these documents must always be delivered by the credit reporting agency or verifying party directly to the lender or its agent, and never to another party. VA only permits the Veteran to pay for the credit report invoiced amount, not any additional costs that the lender may incur through other parties for obtaining the credit report.
+
+3
+
+	
+
+Complete VA Form 26-6393, Loan Analysis, in conjunction with a careful review of the loan application and supporting documentation. Provide any explanations in Item 47- Remarks.
+
+The form is not required for Interest Rate Reduction Refinancing Loans (IRRRL) except IRRRLs to refinance delinquent VA loans.
+
+4
+
+	
+
+Indicate the loan decision in Item 51 of the VA Form 26-6393, Loan Analysis, after ensuring that the treatment of income, debts, and credit is compliant with VA underwriting standards.
+
+e. Underwriting Special Types of Loans
+
+The underwriting standards and procedures explained in this chapter generally apply to purchase and regular "cash-out" refinance loans. However, some special underwriting considerations also apply and can be found in Chapter 7 of this handbook.
+
+f. Refinancing Loans
+
+The underwriting standards detailed in this chapter apply to purchases and regular "cash-out" refinances. IRRRLs generally do not require any underwriting unless the loan is delinquent. IRRRLs made to refinance VA loans 30 days or more past due must be submitted to VA for prior approval underwriting. The underwriter must have concluded that:
+
+the circumstances that caused the delinquency have been corrected, and
+
+the Veteran can successfully maintain the new loan.
+
+Refer to Chapter 6 of this handbook for details on all types of refinancing loans.
+
+Go to Top
+
+Topic 2. Income – Required Documentation and Analysis
+Change Date:
+
+February 22, 2019
+
+This Chapter has been revised in its entirety.
+
+a. Underwriter’s Objectives
+
+It is the underwriter’s objective to identify and verify income available to meet:
+
+the mortgage payment,
+
+other shelter expenses,
+
+debts and obligations, and
+
+family living expenses.
+
+b. Effective Income
+
+Income is considered effective when it is determined to be verifiable, stable and reliable, and anticipated to continue for the foreseeable future. Income analysis is not an exact science. It requires the lender to underwrite each loan on a case-by-case basis, using good judgement and flexibility when warranted.
+
+To determine whether income is stable and reliable, the probability of continued employment must be determined through examination of the:
+
+borrower’s past employment record,
+
+borrower’s training, education, and qualifications for his or her current position, and/or
+
+type of employment.
+
+Only verified income can be considered in the repayment calculation.
+
+c. Spousal Income
+
+Verify and treat the income of a spouse who will be contractually obligated on the loan the same as you would the income of a Veteran borrower that will be obligated on the loan.
+
+However, to ensure compliance with the Equal Credit Opportunity Act (ECOA), do not ask questions about the income of the borrower’s spouse unless the:
+
+spouse will be contractually liable,
+
+borrower is relying on the spouse’s income to qualify,
+
+borrower is relying on alimony, child support, or separate maintenance payments from the spouse or former spouse, or
+
+borrower resides and/or the property is in a community property state.
+
+In community property states, information concerning a spouse may be requested and considered in the same manner as for the borrower, even if the spouse will not be contractually obligated on the loan. See Topic 5, subsection a, of this chapter for additional guidelines for community property states when considering a spouse’s debts and credit history.
+
+The non-purchasing spouse’s (NPS) credit history does not need to be considered; however, the NPS’ liabilities must be considered to determine the extent of the household liabilities.
+
+d. ECOA Considerations
+
+Always inform the borrower (and spouse, if applicable) that they do not have to divulge information on the receipt of child support, alimony, or separate maintenance. However, for this income to be considered in the loan analysis, it must be divulged and verified.
+
+Income cannot be discounted because of sex, marital status, age, race, or other prohibited bases under ECOA.
+
+e. Income from Non-Military Employment
+
+Verify a minimum of 2 years of employment. Generally, in the borrower’s current position, 2 years of employment is a positive indicator of continued employment.
+
+If the borrower has been employed by the present employer less than 2 years:
+
+verify prior employment, plus present employment covering a total of 2 years, or
+
+provide an explanation of why 2 years of employment could not be verified,
+
+compare any different types of employment verifications obtained (such as Verification of Employment (VOE), paystub(s), W2s, and tax returns) for consistency, and
+
+clarify any substantial differences in the data that would have a bearing on the qualification of the borrower(s).
+
+Use of Employment Verification Services
+
+Lenders may use any employment verification service that provides the same information as the "full" verification generated through the "Work Number" for all applicants. Generally, this will include the following information:
+
+the current date,
+
+employer name and address,
+
+Veteran’s full legal name, social security number (complete or truncated) and job title,
+
+employment status (Active or Inactive),
+
+length of employment and start date,
+
+salary rate and pay frequency,
+
+average hours per pay period,
+
+summary of year to date information including base pay, overtime, commissions and bonuses, and reference number for the verification.
+
+A current paystub is not required with an automated employment verification service.
+
+Additionally, any VA Form 26-8497, Request for Verification of Employment (VOE) may be an original, faxed, or emailed copy of the original. Previously, VA required an original VA Form 26-8497. The requirements for obtaining a paystub have not changed. Hence, the paystub may be an original or a copy certified by the lender to be a true copy of the original.
+
+The lender may not charge a fee to obtain the employment verification information.
+
+Verification with VA Standard Documentation
+
+Acceptable verification consists of VA Form 26-8497, Request for Verification of Employment (VOE) or any format which furnishes the same information as VA Form 26- 8497, plus:
+
+paystub(s) covering the most recent 30-day period with year-to-date information, if the employer normally provides a pay stub(s) to the borrower.
+
+if the employer does not indicate the probability of continued employment on the VOE, the lender is not required to request anything additional on that subject.
+
+The VOE and paystub(s) must be no more than 120 days old (180 days for new construction) from the closing date.
+
+For loans closed automatically, the date of the VOE and pay stub(s) must be within 120 days of the date the note is signed (180 days for new construction) from the closing date.
+
+For prior approval loans, the date of the VOE and paystub(s) must be within 120 days of the date the application is received by VA (180 days for new construction) from the closing date.
+
+The VOE must be an original document or an electronic copy. The paystub(s) may be an original, electronic, or a copy certified by the lender to be a true copy of the original document.
+
+Additional documentation for a borrower(s) employed in building trades or other seasonal or climate-dependent work must provide, in addition to the standard documentation (VOE and pay stub(s)), the following:
+
+Documentation of the borrower’s total earnings year-to-date,
+
+Signed and dated individual income tax returns for the previous 2 years, and
+
+If the borrower works out of a union, evidence of the union’s history with the borrower.
+
+Alternative Verification Documentation
+
+Alternative documentation may be submitted in place of a VOE if the lender concludes that the borrower’s income is stable, reliable, and anticipated to continue for the foreseeable future; that is, if the borrower’s income qualifies as effective income. Two years of employment with the same employer is not required to reach this conclusion.
+
+Alternative documentation consists of:
+
+paystub(s) covering at least the most recent 30-day period with year-to date information,
+
+W-2 Forms for the most recent 2 years, and/or
+
+telephone verification of the borrower’s current employment.
+
+Document the date of the verification and the name, title, and telephone number of the person with whom employment is verified.
+
+If the employer is not willing to give telephone verification of the borrower’s employment or if verification is in any way questionable, use standard documentation. Alternative documentation cannot be used.
+
+Paystub(s) and W-2 forms may be originals, electronic, or copies certified by the lender to be true copies of the originals.
+
+f. Borrower Employed for Less than 12 Months
+
+Generally, employment less than 12 months is not considered stable and reliable. However, the lender may consider the employment stable and reliable if the facts and documentation warrant such a conclusion.
+
+Determine whether the borrower’s past employment, training, and/or education equipped him or her with particular skills that relate directly to the duties of their current position.
+
+If the probability of continued employment is high based on these factors, then the lender may consider including the income in the total effective income.
+
+An explanation of why income of less than 12 months duration was used must be documented on the VA 26-6393, Loan Analysis.
+
+If the probability of continued employment is good, but not well supported, the lender may utilize the income if the borrower has been employed at 12 months, to partially offset debts of 6 to 24 months duration. An explanation of why income was used to offset debts must be documented on the VA 26-6393, Loan Analysis.
+
+A borrower may have a valid offer of employment which will begin at or after the anticipated date of closing which can be verified. All data pertinent to underwriting procedures should be considered. However, a paystub(s) may not be available.
+
+g. Recent History of Frequent Changes of Employment
+
+Short-term employment in a present position combined with frequent changes of employment in the recent past requires special consideration to determine stability of income. Analyze the reasons for the changes in employment.
+
+Give favorable consideration to changes for the purpose of career advancement in the same or related field.
+
+Favorable consideration may not be possible for changes with no apparent betterment to the borrower and/or changes from one line of work to another.
+
+If the lender includes the borrower’s income, an explanation of why income of short-term employment was used, must be documented on VA 26-6393, Loan Analysis.
+
+h. Income from Overtime Work, Part Time Jobs, Second Jobs, and Bonuses
+
+Generally, such income cannot be considered stable and reliable unless it has continued and is verified for 2 years. To include income from these sources as income:
+
+the income must be consistent,
+
+there must be a reasonable likelihood that it will continue in the foreseeable future based on its compatibility with the hours of duty and other work conditions of the borrower’s primary job and,
+
+how long the borrower has been employed under such an arrangement.
+
+The lender may use this income, if not eligible for inclusion in income, but verified for at least 12 months, to offset debts of 6 to 24 months duration. An explanation of why the income was used to offset must be documented on VA 26-6393, Loan Analysis.
+
+i. Income from Commissions
+
+Verify commission income by obtaining the VOE or other written verification which provides the following:
+
+the actual amount of commissions paid year-to-date,
+
+the basis for payments (salary plus commission, straight commission, or draws against commission, or other), and
+
+when commissions are paid bi-weekly, monthly, quarterly, semiannually, annually, or other.
+
+individual income tax returns, signed and dated, plus all applicable schedules for the previous 2 years (or additional periods if needed to demonstrate a satisfactory earnings record).
+
+Analyze Income Derived from Commissions
+
+Generally, income from commissions is considered stable when the borrower has obtained such income for at least 2 years. Employment for less than 2 years cannot usually be considered stable unless the borrower has had previous related employment and/or specialized training. Employment of less than 1 year can rarely qualify; however, in-depth development is required for a conclusion of stable income on less than 1 year cases.
+
+For a borrower who will qualify using commission income of less than 25 percent of the total annual employment income, IRS Form 2106 expenses are not required to be deducted from income even if they are reported on IRS Form 2106. Additionally, the expenses are not required to be added as a monthly liability for the borrower.
+
+For a borrower earning commission income that is 25 percent or more of annual employment income, IRS Form 2106 expenses must be deducted from gross commission income regardless of the length of time the borrower has filed the expenses with the IRS.
+
+One exception is an automobile lease or loan payment. An automobile lease or loan payments are not subtracted from the borrower’s income; they are considered part of the borrower’s recurring monthly debts/obligations in Section D on VA 26-6393, Loan Analysis.
+
+j. Self-Employment Income Analysis Guidelines
+
+Obtain a current financial statement in an industry recognized accounting format including:
+
+Year-To-Date Profit and Loss statement (if the most recent year’s tax return has not yet been prepared, provide a profit and loss statement for that year),
+
+current Balance Sheet, and
+
+individual income tax returns, signed and dated, plus all applicable schedules for the previous 2 years (or additional periods if needed to demonstrate a satisfactory earnings record).
+
+If the business is a corporation or partnership, include copies of the signed federal business income tax returns for the previous 2 years with all applicable schedules, and a list of all stockholders or partners showing the interest each holds in the business.
+
+The financial statements must be sufficient for an underwriter to determine the necessary information for loan approval.
+
+Financial Statements, including a year-to-date Profit and Loss Statement and Balance Sheet must be completed after one-half of the tax-year has passed to verify current income and stability of the income.
+
+The lender may require an accountant or Certified Public Accountant-prepared financial statements if needed to make such a determination due to the nature of the business or the content of the financial statements
+
+Analyze Income Derived from Self-Employment
+
+Generally, income from self-employment is considered stable when the borrower has obtained such income for at least 2 years. Less-than-2-years cannot usually be considered stable unless the borrower has had previous related employment and/or specialized training.
+
+Less-than-1-year can rarely qualify; however, in-depth development is required for a conclusion of stable income on less-than-1-year cases.
+
+Determine whether the business can be expected to generate sufficient income for the borrower’s future needs.
+
+If the business shows a steady or significant decline in earnings over the period analyzed, the reasons for such decline must be analyzed to determine whether the trend is likely to continue or be reversed.
+
+If it is difficult to determine the probability of continued operation, obtain documentation on the viability and potential future earnings, and an explanation of the function and financial operations of the business from a qualified party.
+
+Deductions and Expenses Claimed on Tax Returns
+
+Depreciation claimed as a deduction on the tax returns and financial statements of the business may be included in effective income.
+
+Business or roll over losses must be considered from all tax returns.
+
+What is reported to the IRS on a joint return must be used when applying for a federally guaranteed loan.
+
+On a joint tax return, the loss must be deducted from the borrower’s income in both community and non-community property states.
+
+On a joint tax return, when a borrower and co-borrower have been faced with business losses, the Veteran/borrower and his/her spouse may want to consider both being on the loan in order to potentially qualify. The credit of both borrowers will be considered.
+
+k. Active Military Borrower’s Income
+
+For active-duty military borrowers, a Leave and Earnings Statement (LES) is required instead of a VOE. The LES must be an original, electronic, or a copy certified by the lender to be a true copy of the original.
+
+The LES must furnish the same information as a VOE and must be no more than 120 days old (180 days for new construction), from the date of closing.
+
+For loans closed automatically, the date of the LES must be within 120 days of the date the note is signed (180 days for new construction).
+
+For prior approval loans, the date of the LES must be within 120 days of the date the application is received by VA (180 days for new construction).
+
+In addition, identify servicemembers who are within 12 months of release from active duty or the end of their contract term. For an enlisted servicemember, find the date of expiration (ETS) of the borrower’s current contract for active service on the LES. For National Guard or Reserve members, find the ETS of the borrower’s current contract on the LES. Also, if a National Guard or Reserve member is currently serving on active duty, also identify the expiration date of the current active-duty tour. If the date is within 12 months of the projected date that the loan will close, the loan package must also include one of the following items, or combinations of items, to be acceptable:
+
+documentation that the servicemember has already re-enlisted or extended his/her period of active duty to a date beyond the 12-month period following the projected closing of the loan, or
+
+documentation that the servicemember has already re-enlisted or extended his/her period of active-duty service to a date beyond the 12-month period following the projected closing of the loan, or
+
+verification of a valid offer of local civilian employment and/or verification of military retirement income following the release from active-duty service, or
+
+verification of a valid offer of local civilian employment and/or verification of military retirement income following the release from active-duty service, or
+
+a statement from the servicemember that he/she intends to re-enlist or extend his/her period of active-duty service to a date beyond the 12- month period, plus (1) a statement from the servicemember’s commanding officer confirming that the servicemember is eligible to re-enlist or extend his/her active-duty service as indicated, and (2) the commanding officer has no reason to believe that such re-enlistment or extension of active-duty service will not be granted, or
+
+documentation of other unusual strong positive underwriting factors, such as a downpayment of at least 10 percent from the borrower’s own assets (not a gift), a minimum of 6 months PITI, in cash, after the downpayment from the borrower’s own assets (not a gift) or clear evidence of strong ties to the community coupled with a non- military spouse’s income so high that only minimal income from the active-duty servicemember is needed to qualify.
+
+If an Officer has an ETS date listed as 888888 or 000000 on his or her LES, the above documentation is not required unless there is evidence that the Officer has resigned his or her commission.
+
+Example: An Active Duty Veteran’s LES indicates her ETS date listed on her LES is 171031 (October 31, 2017) and the projected date of closing is October 1, 2017. Therefore, one of the above items is needed to verify future income since her ETS date is less than 12 months from the projected date of closing.
+
+Example: A member of the Reserves has been called to Active Duty. The ETS date on his LES indicates 181031 (October 31, 2018); however, his active duty orders indicate his active duty tour will not exceed the next 60 days. Therefore, since he will be leaving active duty before 12 months of the projected closing date, the active-duty income cannot be considered, and his civilian employment and drill duty will need to be considered.
+
+Example: An Active Duty Veteran’s LES indicates his ETS date is less than 1 month from the anticipated date of closing, and he indicates he will be receiving military retirement and has accepted civilian employment. Verify his future retirement income from the Department of Defense and verify future civilian employment with the Veteran’s new employer.
+
+Analysis of Base Pay
+
+Consider the borrower’s base pay as stable and reliable unless the borrower is within 12 months of release from active-duty service. Analyze the additional documentation submitted. If the borrower will not be re-enlisting, determine whether the borrower’s anticipated source of income is stable and reliable, and/or unusually strong underwriting factors compensate for any unknowns regarding future sources of income.
+
+If an Officer has an ETS date listed as 888888 or 000000 on his or her LES, the above documentation is not required unless there is evidence that the Officer has resigned his or her commission.
+
+Analysis of Military Quarters Allowance/ Basic Allowance for Housing (BAH)
+
+Include a military quarters allowance in effective income if properly verified. In most areas, there will be an additional variable housing allowance, which can also be included. The military quarters and variable housing allowances are not taxable income. The lender must verify the amount of BAH the Veteran will receive. The BAH amount will change from one duty station to another.
+
+Ensure that the borrower meets the occupancy requirements set forth in Chapter 3 of this handbook.
+
+Verification and Analysis of Basic Allowance for Subsistence (BAS) and Clothing Allowances
+
+Any subsistence (rations) and clothing allowances are indicated on the LES. The lender may include verified allowances in effective income. These allowances are not taxable income.
+
+The clothing allowance generally appears on the LES as an annual amount. Convert the annual amount to a monthly amount for the Loan Analysis.
+
+Verification and Analysis of Other Military Allowances
+
+To consider a military allowance in the underwriting analysis, obtain verification of the type and amount of the military allowance, how long the borrower has received it and the continuance into the foreseeable future.
+
+Military allowances may be included in effective income only if such income can be expected to continue because of the nature of the borrower’s assigned duties. Such allowances include, but are not limited to:
+
+proficiency pay, such as linguistic, parachute, scuba, flight or hazard pay, and
+
+overseas or combat pay (sea pay, submarine, etc.)
+
+All types of allowances above are subject to periodic review and/or testing of the recipient to ascertain whether eligibility for such pay will continue. Only if it can be shown that such pay has continued for a prolonged period and can be expected to continue because of the nature of the recipient's assigned duties, should the income be added to base pay. Contact the borrower’s chain of command if there are questions regarding the continuance of the income.
+
+If the duration of the military allowance cannot be determined, this source of income may still be used to offset short term obligations of 6 to 24 months duration.
+
+Consult the IRS to determine if any allowances for pay are considered taxable income by the IRS, unlike housing, clothing, and subsistence allowances.
+
+l. Income and Analysis of Income from Service in the Reserves or National Guard
+
+Income derived from service in the Reserves or National Guard may be used if the borrower has served in such capacity for a period of time sufficient to indicate a good probability that such income will continue beyond 12 months. The total period of active-duty and reserve service may be helpful in this regard. Otherwise, this income may be used to offset obligations of 6 to 24 months duration.
+
+Income from Recently Activated Members of the Reserve or National Guard
+
+Lenders must consider if a borrower, whose income is being used to qualify for a loan, may have a change in income due to participation in a Reserves/National Guard unit subject to activation.
+
+If an activated Reserves/National Guard member applies for a loan, they must present orders indicating their current active duty tour is not to exceed 12 months.
+
+Example: The borrower’s full-time civilian employment is $3,000 per month. The borrower’s current income from the Reserves due to activation is $3,500 per month and orders are for 12 months. Since the borrower’s full-time civilian employment is only $3,000 per month, the $3,000 should be used to qualify the borrower.
+
+There are not any clear-cut procedures that can be applied to all cases. Evaluate all aspects of each individual case, including credit history, accumulation of assets, overall employment history, and make the best decision for each loan regarding the use of income in qualifying for the loan.
+
+It is very important that loan files be carefully and thoroughly documented, including any reasons for using or not using Reserve/National Guard income in these situations.
+
+As a lender, the goal is to provide the Veteran their benefit without placing him/her in a financial hardship.
+
+m. Verification and Analysis of Income of Recently Discharged Veterans or Veterans to be Discharged from the Military
+
+See the Income from Non-Military Employment in Topic 2, subsection e of this chapter for verification requirements.
+
+Obtain verification that any of the following income types apply:
+
+employment income,
+
+retirement income, and/or
+
+VA disability income.
+
+VA disability income is considered a benefit and does not need to be documented for the likelihood of continuance.
+
+VA disability income verification will be placed on the COE. However, there are some instances where this income is not placed on the COE which may include if the Veteran:
+
+will be discharging within the next 6 months from the military and has completed a Physical Exam Board (PEB) or Medical Review Board (MEB) and will be filing for VA disability while still on active duty,
+
+has recently filed for VA disability and VA’s Compensation Service has not yet made a determination and would be entitled to receive VA disability benefits,
+
+would be entitled to receive VA disability benefits, but for the receipt of retired pay,
+
+has received VA disability benefits in the past, or
+
+is an unmarried surviving spouse of a Veteran who is eligible for or receiving qualifying Disability and Indemnity Compensation (DIC), or
+
+is in receipt of a VA nonservice connected pension, or
+
+has a VA-appointed Fiduciary to handle financial matters.
+
+If the Veteran falls under one of the above categories, perform the following:
+
+Submit by fax VA Form 26-8937, Verification of VA Benefits, to the VA Regional Loan Center (RLC) where the subject property is located. VA will complete and return the form to the lender by return fax.
+
+Provide any supporting documents, including the COE, if it states to send VA Form 26- 8937, Verification of Benefits to VA, to verify a Veteran’s monthly income from VA.
+
+Please note that if VA’s Compensation Service has not yet issued a memo rating and/or completed a claim for a Veteran, then the amount the Veteran may receive in the future cannot be determined until the claim has been completed.
+
+Until the Veteran begins receiving the monthly award, the amount cannot be placed on the COE. A VA awards letter can be used to verify the amount and date a future monthly VA compensation award will begin. However, the COE may be updated to reflect if the Veteran is exempt from paying the VA funding fee on a future disability award. See Chapter 8 of this handbook for funding fee exemptions.
+
+The loan cannot be submitted for prior approval, or approved under the automatic procedure, until the lender obtains the completed form from VA when the Veteran or surviving spouse is under one of the above categories in subsection m of this topic. The lender must maintain the completed form with the loan package.
+
+If the form indicates that the borrower receives a non service-connected pension or has a VA Fiduciary, the loan cannot be closed automatically. The loan must be uploaded in WebLGY for prior approval. See Chapter 5 of this handbook for the necessary documentation that must be submitted to VA.
+
+VA must review, underwrite, and issue a Certificate of Commitment before the loan can close. See Chapter 5 of this handbook for prior approval procedures.
+
+VA’s Pension Service may also have to review and/or approve the application in addition to Loan Production. The VA RLC will coordinate with the Pension Service upon receipt of the underwriting package.
+
+Allow for additional processing time of a prior approval loan application when Compensation and/or Pension Service must also review.
+
+Analysis of Prospects for Continued Employment
+
+Cases involving recently discharged Veterans often require the underwriter to exercise a great deal of judgment and flexibility in determining whether the employment income will continue in the foreseeable future. This is because some Veterans may have little or no employment experience other than their military occupation.
+
+Continuity of employment is essential for a Veteran with no retirement income, or insufficient retirement income, to support the loan obligation. If the duties the borrower performed in the military are similar or directly related to the duties of the present position, use this as one indicator that the employment is likely to continue.
+
+Most cases fall somewhere between these extremes. Fully develop the facts of each case to make a determination. The guidelines under Self-Employment Income in Topic 2, subsection j of this chapter provide guidance for a recently discharged Veteran who is self-employed.
+
+n. Rental Income
+
+When all or a portion of the borrower’s income is derived from rental income, documentation and verification of the income are necessary to determine the likelihood of continuance.
+
+Verification of Rental Offset of the Property Occupied Prior to the New Home
+
+Obtain a copy of the rental agreement for the property, if any.
+
+Analysis using Rental Offset of the Property Occupied Prior to the New Loan
+
+Use the prospective rental income only to offset the mortgage payment on the rental property, and only if there is not an indication that the property will be difficult to rent. This rental income may not be included in effective income.
+
+Obtain a working knowledge of the local rental market. If there is not a lease on the property, but the local rental market is very strong, the lender may still consider the prospective rental income for offset purposes. Provide a justification on VA 26-6393, Loan Analysis.
+
+Reserves are not needed to offset the mortgage payment on the property the Veteran occupies prior to the new loan.
+
+Example [Rental Offset of the Property Occupied Prior to the New Loan]: The Veteran’s current home has a VA mortgage with a monthly PITI payment of $1,000. Bonus entitlement is being used to purchase a new primary residence and the Veteran will rent the previous home for $1,200 monthly upon closing of the new home. The payment of $1,200 can be used to offset the existing mortgage payment, if all the above conditions are met. The additional rent received in excess of the mortgage payment cannot be used as effective income.
+
+Verification of Rental Property Income
+
+Obtain the following:
+
+documentation of cash reserves totaling at least 3 months mortgage payments (PITI), and
+
+individual income tax returns, signed and dated or lender obtained tax transcripts, plus all applicable schedules for the previous 2 years, which show rental income generated by the property.
+
+If the borrower has multiple properties, the borrower must have 3 months PITI documented for each property to consider the rental income.
+
+If there is not a lien on the property, 3 months reserves to cover expenses such as taxes, hazard insurance, flood insurance, homeowner’s association fees, and any other recurring fees should be documented for the property(ies).
+
+Equity in the property cannot be used as reserves.
+
+Cash proceeds from a VA refinance cannot be counted as the required PITI on a rental property. The reserve funds must be in the borrower’s account before the new VA loan closes.
+
+Gift funds cannot be used to meet reserve requirements.
+
+Analysis of Rental Property Income
+
+Each property(ies) must have a 2-year rental history itemized on the borrower’s tax return.
+
+Property depreciation claimed as a deduction on the tax returns may be included in effective income.
+
+If after adding depreciation to the negative rental income, the borrower still has rental loss, the negative income should be deducted from the overall income as it reduces the borrower’s income.
+
+If rental income will not, or cannot be used, then the full mortgage payment should be considered and reserves do not need to be considered.
+
+Verification of Multi-Unit Property Securing the VA loan
+
+The Veteran/borrower must occupy one unit as his/her residence.
+
+For purposes of determining the VA guaranty, lenders are instructed to reference only the One-Unit Limit column in the FHFA Table "Fannie Mae and Freddie Mac Maximum Loan Limits for Mortgages, located at https://www.fhfa.gov/DataTools/Downloads.
+
+Verify cash reserves totaling at least 6 months mortgage payments (PITI), and documentation of the borrower’s prior experience managing rental units and/or use of a property management company to oversee the property.
+
+Analysis of Multi-Unit Property Securing the VA loan (Veteran will occupy one unit as his/her residence)
+
+Include the prospective rental income in effective income only if:
+
+the borrower has a reasonable likelihood of success as a landlord, and
+
+cash reserves totaling at least 6 months mortgage payments (PITI).
+
+If each unit is separate and not under one mortgage, 6 months PITI must be verified for each separate unit.
+
+Equity in the property cannot be used as reserves to meet PITI requirements. This must be the borrower’s own funds, not a gift.
+
+Cash proceeds from a VA regular "Cash-Out" refinance cannot be counted as the required PITI on a rental property. The reserve funds must be in the borrower’s account before the new VA loan closes.
+
+The amount of rental income to include in effective income is based on 75 percent of the amount indicated on the lease or rental agreement unless a greater percentage can be documented (existing property).
+
+The amount of rental income to include in effective income is based on 75 percent of the amount indicated on the appraiser’s opinion of the property’s fair monthly rental (proposed construction).
+
+o. Temporary Boarder Rental Income Single Family Residence
+
+The verification of temporary boarder rental income requires the following:
+
+individual income tax returns, signed and dated, plus all applicable schedules for the previous 2 years, which show boarder income generated by the property, and
+
+the rental cannot impair the residential character of the property and cannot exceed 25 percent of the total floor area.
+
+Analysis of Temporary Boarder Rental Income
+
+Include rental income in effective income only if the borrower has a reasonable likelihood of continued success due to the strength of the local market. Provide a justification on VA 26-6393, Loan Analysis.
+
+PITI reserves are not necessary to consider the income, and all the income may be used in the analysis.
+
+p. Alimony, Child Support, and Maintenance Payments
+
+Verify the income if the borrower wants it to be considered. The payments must be likely to continue for at least 3 years from the anticipated closing date to include them in effective income.
+
+Factors used to determine whether the payments will continue include, but are not limited to:
+
+whether the payments are received pursuant to a written agreement or court decree,
+
+the length of time the payments have been received,
+
+the regularity of receipt, and
+
+the availability of procedures to compel payment.
+
+See "ECOA Considerations" in Topic 2, subsection d of this chapter.
+
+q. Automobile or Similar Allowances
+
+Generally, automobile allowances are paid to cover specific expenses related to a borrower’s employment, and it is appropriate to use such income to offset a corresponding car payment. However, if the borrower reports an allowance as part of monthly qualifying income, it must be determined if the automobile expense reported on IRS Form 2106 should be deducted from income or treated as a liability.
+
+If the reported expense is less than the automobile allowance, the amount can be treated as income and added to borrower’s monthly income.
+
+If the reported expense exceeds the automobile allowance, the amount must be deducted from income as a net calculation in Section D on VA 26-6393, Loan Analysis.
+
+Likewise, any other similar type of allowance received by the borrower should be considered with regards to the tax returns for determination of an offset of the corresponding obligation, as income, or as an expense.
+
+r. Other Types of Income
+
+While not all types of income can be listed, documentation of income must support the history of receipt and the likelihood or continuance of the income for at least 3 years from the anticipated closing date to include in effective income. Otherwise, consider whether it is reasonable to use the income to offsets short term obligations of 6 to 24 months duration.
+
+"Other" types of income which may be considered as effective income include, but are not limited to:
+
+pension or other retirement benefits,
+
+disability income,
+
+dividends from stocks or other,
+
+interest from bonds, savings accounts, or others,
+
+royalties,
+
+notes receivable, and
+
+trusts
+
+VA disability income is considered a benefit and does not need to be documented for the likelihood of continuance. A COE will generally have the amount of VA disability income listed, however, see Topic 2, subsection m of this chapter for exceptions.
+
+A VA award letter or bank statement may also verify the current monthly amount received.
+
+The lender may include verified income from public assistance programs in effective income if evidence indicates it will likely continue for 3 years or more.
+
+The lender may include workers’ compensation income that will continue for at least 3 years from the anticipated closing date if the borrower chooses to reveal it.
+
+The lender may include verified income received specifically for the care of any foster child(ren), only to balance the expenses of caring for the foster child(ren) against any increased residual requirements.
+
+Example: The borrower(s) receive a stipend paid by the county or State for two foster children living in the residence. Instead of considering a family size of four, a family size of two should be used to determine the residual income requirement.
+
+Do not include temporary income items such as VA educational allowances (including the Post 9/11 GI Bill benefit) and unemployment compensation in effective income.
+
+Exception: If unemployment compensation is a regular part of a borrower’s income due to the nature of his/her employment (for example, seasonal work), it may be included.
+
+A borrower in receipt of VA Pension or Disability benefits with Aid and Attendance should be discussed with the VA Pension Service, VA Compensation Service, or the VA Hospital where the property is located, to determine if the income is likely to continue for the foreseeable future.
+
+If a borrower has a contract for employment in a foreign country (whether or not the employer is a US company or corporation), the income can be used if it is verified, stable, and reliable. While some contracts are renewed yearly, consider the borrower’s past employment history and the likelihood of the contract being extended.
+
+Income that is paid by a foreign employer or government in foreign currency should be converted to US dollars.
+
+Go to Top
+
+Topic 3. Income Taxes and Other Deductions
+Change Date:
+
+February 22, 2019
+
+This Chapter has been revised in its entirety.
+
+a. Income Tax and Social Security Deductions
+
+Determine the appropriate deductions for Federal income tax and Social Security using the "Employer’s Tax Guide", Circular E, issued by the Internal Revenue Service (IRS).
+
+Determine the appropriate deductions for state and local taxes using similar materials provided by the states.
+
+The income tax should be based upon the borrower’s residence and what is documented in the guide to the IRS, and not solely the amount claimed on the paystub.
+
+An active-duty servicemember’s LES may have a different state tax deduction than the state where the active-duty servicemember will be purchasing a residence or refinancing. Select the state listed on the LES for the state taxes to be considered in state tax deductions.
+
+The lender may consider the borrower’s potential tax benefits from obtaining the loan (for example, mortgage interest deduction) in the analysis. To do so:
+
+determine what the borrower’s withholding allowance will be, using the instructions and worksheet portion of IRS Form W-4, Employee’s Withholding Allowance Certificate, and
+
+apply that withholding number when calculating Federal and state income tax deductions on VA 26-6393, Loan Analysis, then
+
+document the change in deductions in Item 47, Remarks, on VA 26-6393, Loan Analysis.
+
+b. Income Tax Credits from Mortgage Credit Certificates (MCC)
+
+MCCs issued by state and local governments may qualify a borrower for a Federal tax credit. The Federal tax credit is based on a certain percentage of the borrower’s mortgage interest payment. Lenders must provide a copy of the MCC to VA with the loan package which indicates:
+
+documentation verifying any expenses charged by the local government entity for the program which is listed on the Closing Disclosure Statement, and
+
+the percentage to be used to calculate the tax credit, and if applicable, the amount of the indebtedness. The certified indebtedness can be comprised of a loan incurred by the borrower to acquire a principal residence or a qualified home improvement rehabilitation loan.
+
+There is an IRS annual limit on the tax credit equal to the lesser of the borrower’s maximum tax liability or $2,000. Calculate the tax credit by applying the specified percentage to the interest paid on the certified indebtedness. Then apply the annual limit.
+
+Example: The MCC shows a 30 percent rate and $100,000 certified indebtedness. The borrower will pay approximately $8,000 in annual mortgage interest. The borrower’s estimated total Federal income tax liability is $9,000. Calculate the tax credit as follows:
+
+Table 2: MCC Calculation
+
+Step
+
+	
+
+Procedure
+
+1
+
+	
+
+30 percent of $8,000 = $2,400
+
+2
+
+	
+
+Apply the IRS annual $2,000 limit
+
+3
+
+	
+
+The tax credit will be $2,000
+
+This allows use of $167 (one twelfth of $2,000) as income to qualify the borrower.
+
+If the mortgage on which the borrower pays interest is greater than the amount of certified indebtedness, limit the interest used in the tax credit calculation to that portion attributable to the certified indebtedness.
+
+Since these programs are offered by state and local government(s), pre- approval by VA is not required for the borrower to participate in the program. The lender is responsible to determine all eligibility requirements are met by the borrower to participate in the program.
+
+c. Other Deductions from Income
+
+Include any costs for job-related expenses, child care, significant commuting costs, and any other direct or incidental costs associated with the borrower’s or spouse’s employment.
+
+For children up to the age of 12 years, the lender is responsible for determining if there are any child care expenses for the borrower(s).
+
+Go to Top
+
+Topic 4. Assets and Closing Requirements
+Change Date:
+
+February 22, 2019
+
+This Chapter has been revised in its entirety.
+
+a. Assets and Amount of Cash Required for Closing
+
+The borrower(s) must have sufficient cash assets to cover:
+
+any closing costs, pre-paids, or discount points which are the borrower’s responsibility and are not financed into the loan, and
+
+the difference between the sales price and the loan amount, if the sales price exceeds the reasonable value established by VA (i.e. negative equity).
+
+VA does not require the borrower(s) to have additional cash to cover a certain number of mortgage payments, unplanned expenses or other contingencies on the residence, or refinance of the Veteran’s residence.
+
+However, the borrower’s ability to accumulate liquid assets and the current availability of liquid assets for unplanned expenses should be considered in the overall credit analysis.
+
+Reserves are required for borrowers using rental income to qualify. See Topic 2, subsection n of this chapter for more information.
+
+A rental offset does not require additional assets to cover PITI. See Topic 2, subsection n of this chapter for more information.
+
+The assets securing a loan(s) against deposited funds (signature loans, cash value life insurance policies, 401(k) loans, other) may not be included as an asset on the VA 26-6393, Loan Analysis. See Topic 5 of this chapter for more information.
+
+b. Verification of Assets and Cash to Close Requirements
+
+Verify all liquid assets owned by the borrower(s) 
+
+[truncated to 50000 chars]

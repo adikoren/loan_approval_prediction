@@ -12,6 +12,17 @@ AGENCY_MAP = {
     6: "Department of Housing and Urban Development",
     7: "Consumer Financial Protection Bureau",
 }
+# Human-readable program label per loan_type, for the "program-specific
+# coverage" line told to the LLM — kept separate from
+# rag/retriever.py's LOAN_TYPE_TO_PROGRAM (that one's values are the
+# loan_program metadata values used to filter retrieval; these are just
+# display labels).
+LOAN_TYPE_TO_PROGRAM_LABEL = {
+    "Conventional": "conventional",
+    "FHA-insured": "FHA",
+    "VA-guaranteed": "VA",
+    "FSA/RHS-guaranteed": "USDA/FSA-RHS",
+}
 
 # Some Anthropic Console organizations issue API keys that are not scoped to
 # a single workspace; the API then requires every request to carry an
@@ -102,6 +113,13 @@ not fabricate a regulatory citation that isn't supported by the excerpts.
 so explicitly rather than guessing.
 - Note that a human/legal fair-lending and compliance review would still be required before any real \
 lending decision.
+- Treat the "Retrieved regulation/compliance excerpts" section below as the ONLY source of \
+regulatory grounding. You must not introduce a specific underwriting requirement, threshold, or \
+rule from your own general knowledge and present it as though it came from the retrieved corpus. \
+If the "Program-specific underwriting coverage" line below says none was found, say so explicitly \
+(e.g. "the retrieved knowledge base does not contain sufficient [program]-specific underwriting \
+guidance to establish a formal underwriting rationale for this case") rather than filling that gap \
+with something you happen to know about that loan program.
 - Keep the tone professional and concise: 3-4 sentences.
 - Write in plain prose only — no Markdown (no "**bold**", "#" headings, or "-"/"*" bullet lists)."""
 
@@ -115,17 +133,40 @@ def generate_explanation(
 ) -> str:
     """Generate a compliance explanation grounded in regulation chunks using Claude.
 
-    `chunks` is a list of {"source": ..., "chunk_id": ..., "text": ...} dicts
-    (see rag/retriever.py) — already filtered to sources relevant to this
-    application's loan type.
+    `chunks` is a list of dicts from rag/retriever.py — each carries "text"
+    plus source metadata (document, issuer, document_type, loan_program,
+    source_url, section). Program-specific ("underwriting") chunks are
+    already restricted to the application's own loan program; "general"
+    chunks (fair-lending/reporting) apply regardless of program.
     """
     f = _readable(features)
 
-    context = (
-        "\n\n".join(f"[{c['source']}] {c['text']}" for c in chunks)
-        if chunks
-        else "No regulation context available."
-    )
+    program_chunks = [c for c in chunks if c["document_type"] == "underwriting"]
+    program = LOAN_TYPE_TO_PROGRAM_LABEL.get(f.get("loan_type"), f.get("loan_type"))
+
+    if chunks:
+        context = "\n\n".join(
+            f"[{c['source']} — issuer: {c['issuer']}, type: {c['document_type']}"
+            + (f", section: {c['section']}" if c.get("section") else "")
+            + f"]\n{c['text']}"
+            for c in chunks
+        )
+    else:
+        context = "No regulation context available."
+
+    if program and not program_chunks:
+        coverage_line = (
+            f"Program-specific underwriting coverage: NONE FOUND. The knowledge base has no "
+            f"{program}-specific underwriting document covering this case."
+        )
+    elif program_chunks:
+        coverage_line = (
+            f"Program-specific underwriting coverage: {len(program_chunks)} chunk(s) found from "
+            + ", ".join(sorted({c['source'] for c in program_chunks}))
+            + "."
+        )
+    else:
+        coverage_line = "Program-specific underwriting coverage: not applicable (loan program unknown)."
 
     feature_summary = ", ".join(
         f"{k.replace('_', ' ')}: {v}"
@@ -155,6 +196,7 @@ def generate_explanation(
                         f"Model outcome: {decision.upper()}\n"
                         f"{outcome_block}\n\n"
                         f"Submitted application data:\n{feature_summary}\n\n"
+                        f"{coverage_line}\n\n"
                         f"Retrieved regulation/compliance excerpts:\n{context}\n\n"
                         f"Write the compliance explanation now."
                     ),

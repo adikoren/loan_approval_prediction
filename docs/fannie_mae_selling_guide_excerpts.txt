@@ -1,0 +1,145 @@
+SOURCE: Fannie Mae Selling Guide (current online HTML edition)
+ISSUER: Fannie Mae
+RETRIEVED FROM: https://selling-guide.fanniemae.com/ (reached via the official archive index at
+https://singlefamily.fanniemae.com/fannie-mae-selling-and-servicing-policy-archives -> "Selling Guide")
+PUBLISHED: September 02 2026 (guide edition date, per site header)
+DOCUMENT TYPE: Conventional loan underwriting guidance
+NOTE: Extracted verbatim from the official browsable HTML Selling Guide, section by section.
+Each section below records its own exact source URL and the section's own last-revised date
+as shown on the site. This replaces a prior placeholder/mock "fannie_mae_selling_guide.pdf"
+that was NOT sourced from Fannie Mae and must not be used as underwriting grounding.
+
+================================================================================
+SECTION: B3-1-01, Comprehensive Risk Assessment (revised 11/05/2025)
+SOURCE URL: https://selling-guide.fanniemae.com/sel/b3-1-01/comprehensive-risk-assessment
+================================================================================
+
+Fannie Mae's underwriting policies include an evaluation of the borrower's (or spouse's to the
+extent required by applicable law) equity investment, credit history, liquid reserves, reliable
+and recurring income, and the cumulative effect that these and other risk factors have on
+mortgage loan performance. Fannie Mae's underwriting policies enable the lender to consider
+various scenarios in evaluating a borrower's willingness and capacity to repay the mortgage loan.
+The lender must confirm that information provided by the borrower during the loan application
+process is accurate and complete; include documentation in the loan file that supports the
+lender's assessment of the borrower's credit history, employment and income, assets, and other
+financial information used for qualifying; conduct a comprehensive risk assessment of each
+mortgage loan application; and render a decision to either approve or decline the mortgage loan
+application.
+
+Fannie Mae offers lenders two options for conducting a comprehensive risk assessment: automated
+underwriting through Desktop Underwriter (DU) or manual underwriting. Both methods include an
+evaluation of the borrower's equity investment, credit history, liquid reserves, reliable and
+recurring income, and the cumulative effect that these and other risk factors have on mortgage
+loan performance.
+
+Lenders that choose to manually underwrite a mortgage application are expected to follow the
+comprehensive risk assessment approach. Under this approach, lenders evaluate certain key risk
+elements to assess the overall level of delinquency risk. Lenders are fully responsible for:
+evaluating the delinquency risk of each loan; reviewing the credit report, as well as all other
+credit information, to determine that the credit report meets Fannie Mae's requirements, that the
+data evaluated was accurate, and that the borrower has the capacity to repay the mortgage loan;
+assessing the adequacy of the property as collateral for the mortgage requested; determining
+whether or not the loan meets Fannie Mae's eligibility requirements as fully described in this
+Guide; determining whether or not it is appropriate to deliver the mortgage loan to Fannie Mae;
+and fully documenting the assessment and the documentation on which the assessment was based.
+
+Lenders must evaluate the overall level of serious delinquency risk that is present in each
+mortgage application by taking into consideration any layering of risk factors, the significance
+of risk factors, and the overall risks present in the mortgage application. The Eligibility Matrix
+provides a solid foundation for assessing the risk of a manually underwritten loan and identifies
+the risk elements to evaluate for each transaction type.
+
+For a more precise or definitive recommendation for determining whether to deliver a given
+mortgage to Fannie Mae, the lender should submit the mortgage application to DU. DU evaluates the
+probability of future serious delinquency and arrives at an underwriting recommendation by
+relying on a comprehensive examination of risk factors in a mortgage application. DU is the
+standard by which Fannie Mae assesses the delinquency risk on all mortgages sold to Fannie Mae.
+
+================================================================================
+SECTION: B3-3.1-01, General Income Information (revised 03/04/2026)
+SOURCE URL: https://selling-guide.fanniemae.com/sel/b3-3.1-01/general-income-information
+================================================================================
+
+A stable and predictable flow of income is a foundational element in loan underwriting. The
+lender must document income is stable, has a documented history of receipt, and is reasonably
+expected to continue.
+
+Borrowers must be qualified with income the lender can reasonably expect to continue for the
+foreseeable future. The lender must evaluate the likelihood of continuance based on the nature of
+the income and supporting documentation. If the income does not have a defined expiration date and
+the applicable history of receipt of the income is documented, the lender may conclude that the
+income is likely to continue and the lender is not expected to obtain additional documentation,
+unless there is information to the contrary. If the income source does have a defined expiration
+date or is dependent on the depletion of an asset account or other limited benefit, the lender
+must document that the income is expected to continue for at least three years from the note date.
+
+Borrowers who are not U.S. citizens must meet the same employment and income verification
+requirements that are required for borrowers who are U.S. citizens, regardless of the type or
+source of income.
+
+Income from a non-occupant borrower may be considered in qualifying for both DU and manually
+underwritten loans provided the income meets the same standards as required for occupying
+borrowers. For manually underwritten loans, this income can offset certain weaknesses that may be
+in the occupant borrower's loan application, such as limited income, financial reserves, or
+limited credit history. However, it may not be used to offset significant or recent instances of
+major derogatory credit in the occupant borrower's credit history. The occupant borrower must
+still reasonably demonstrate a willingness to make the mortgage payments and maintain
+homeownership.
+
+The lender should give special consideration to sources of income that may be nontaxable. The
+lender must verify that the particular source of income is nontaxable. If the income is verified
+to be nontaxable, and the income and its tax-exempt status are likely to continue, the lender
+should develop an "adjusted gross income" for the borrower by adding an amount equivalent to 25%
+of the nontaxable income to the borrower's income.
+
+================================================================================
+SECTION: B3-5.1-01, General Requirements for Credit Scores (revised 04/22/2026)
+SOURCE URL: https://selling-guide.fanniemae.com/sel/b3-5.1-01/general-requirements-credit-scores
+================================================================================
+
+Credit scores are required for most loans purchased or securitized by Fannie Mae. The credit
+score models approved by the Federal Housing Finance Agency (FHFA) are classic FICO, VantageScore
+4.0, and FICO 10T. The following versions of the classic FICO score are currently required for
+loans underwritten through DU and manually underwritten mortgage loans: Equifax Beacon 5.0;
+Experian/Fair Isaac Risk Model V2; and TransUnion FICO Risk Score, Classic 04. The lender must
+request these FICO credit scores for each borrower from each of the Fannie Mae-approved score
+providers when they order the three in-file merged credit report.
+
+Minimum Credit Score Requirements: For manually underwritten loans, the requirements are published
+in the Eligibility Matrix and are based on the credit score and the highest of the LTV, CLTV, or
+HCLTV ratios (as applicable); loan purpose; number of units; amortization type; and DTI ratio. To
+determine the credit score that applies for loan eligibility: loans with one borrower use the
+representative credit score; loans with more than one borrower use the average median credit
+score. The minimum credit score that applies for loan eligibility is 620 for fixed-rate loans and
+640 for ARMs. For DU loan casefiles, a minimum credit score is not required — DU will assess a
+borrower's creditworthiness in accordance with the risk factors it evaluates.
+
+The credit report will indicate if a credit score could not be produced due to insufficient
+credit. The credit report must be maintained in the loan file, whether the report includes
+traditional credit and a credit score or indicates that a credit score could not be produced due
+to insufficient or frozen credit.
+
+================================================================================
+SECTION: B2-1.1-01, Occupancy Types (revised 10/05/2022)
+SOURCE URL: https://selling-guide.fanniemae.com/sel/b2-1.1-01/occupancy-types
+================================================================================
+
+Fannie Mae purchases or securitizes mortgages secured by properties that are principal residences,
+second homes, or investment properties. For the maximum allowable LTV/CLTV/HCLTV ratios and
+credit score requirements for each occupancy type, see the Eligibility Matrix.
+
+Principal Residence Properties: A principal residence is a property that the borrower occupies as
+their primary residence. Only one borrower must occupy and take title to the property in the case
+of multiple borrowers (except as otherwise required for mortgages with guarantors or co-signers).
+A military service member borrower currently on active duty and temporarily absent from their
+principal residence because of military service is considered to be an owner occupant, provided
+the lender verifies the temporary absence via a copy of the borrower's military orders.
+
+Second Home Properties must: be occupied by the borrower for some portion of the year; be
+restricted to one-unit dwellings; be suitable for year-round occupancy; be under the borrower's
+exclusive control; and must not be a rental property or a timeshare arrangement. An LLPA
+(loan-level price adjustment) applies to certain loans secured by second homes.
+
+Investment Properties: An investment property is owned but not occupied by the borrower. An LLPA
+applies to all mortgage loans secured by an investment property, in addition to any other price
+adjustments otherwise applicable to the transaction.

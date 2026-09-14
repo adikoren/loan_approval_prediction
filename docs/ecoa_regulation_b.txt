@@ -1,0 +1,155 @@
+SOURCE: 12 CFR Part 1002 — Equal Credit Opportunity Act (Regulation B)
+ISSUER: Consumer Financial Protection Bureau (CFPB)
+RETRIEVED FROM: https://www.consumerfinance.gov/rules-policy/regulations/1002/
+DOCUMENT TYPE: General fair-lending / compliance regulation (not program-specific underwriting guidance)
+NOTE: Extracted verbatim from the CFPB's official "Interactive Bureau Regulations" pages for
+Subpart A — General, sections most relevant to credit evaluation, discrimination, and adverse
+action notice requirements. Each section below records its own exact source URL.
+
+================================================================================
+SECTION: Sec. 1002.1 Authority, scope and purpose.
+SOURCE URL: https://www.consumerfinance.gov/rules-policy/regulations/1002/1/
+================================================================================
+
+(a) Authority and scope. This part, known as Regulation B, is issued by the Bureau of Consumer
+Financial Protection (Bureau) pursuant to title VII (Equal Credit Opportunity Act) of the Consumer
+Credit Protection Act, as amended (15 U.S.C. 1601 et seq.). Except as otherwise provided herein,
+this subpart applies to all persons who are creditors, as defined in Sec. 1002.2(l), other than a
+person excluded from coverage of this part by section 1029 of the Consumer Financial Protection Act
+of 2010, title X of the Dodd-Frank Wall Street Reform and Consumer Protection Act, Public Law
+111-203, 124 Stat. 1376.
+
+(b) Purpose. The purpose of this part is to promote the availability of credit to all creditworthy
+applicants without regard to race, color, religion, national origin, sex, marital status, or age
+(provided the applicant has the capacity to enter into a binding contract); to the fact that all or
+part of the applicant's income derives from any public assistance program; or to the fact that the
+applicant has in good faith exercised any right under the Consumer Credit Protection Act. The
+regulation prohibits creditor practices that discriminate on the basis of any of these factors. The
+regulation also requires creditors to notify applicants of action taken on their applications; to
+report credit history in the names of both spouses on an account; to retain records of credit
+applications; to collect information about the applicant's race and other personal characteristics
+in applications for certain dwelling-related loans; and to provide applicants with copies of
+appraisal reports used in connection with credit transactions.
+
+================================================================================
+SECTION: Sec. 1002.2 Definitions (selected terms relevant to underwriting explanations).
+SOURCE URL: https://www.consumerfinance.gov/rules-policy/regulations/1002/2/
+================================================================================
+
+(c) Adverse action.
+(1) The term means:
+(i) A refusal to grant credit in substantially the amount or on substantially the terms requested in
+an application unless the creditor makes a counteroffer (to grant credit in a different amount or on
+other terms) and the applicant uses or expressly accepts the credit offered;
+(ii) A termination of an account or an unfavorable change in the terms of an account that does not
+affect all or substantially all of a class of the creditor's accounts; or
+(iii) A refusal to increase the amount of credit available to an applicant who has made an
+application for an increase.
+
+(f) Application means an oral or written request for an extension of credit that is made in
+accordance with procedures used by a creditor for the type of credit requested. A completed
+application means an application in connection with which a creditor has received all the
+information that the creditor regularly obtains and considers in evaluating applications for the
+amount and type of credit requested (including, but not limited to, credit reports, any additional
+information requested from the applicant, and any approvals or reports by governmental agencies or
+other persons that are necessary to guarantee, insure, or provide security for the credit or
+collateral).
+
+(l) Creditor means a person who, in the ordinary course of business, regularly participates in a
+credit decision, including setting the terms of the credit.
+
+(n) Discriminate against an applicant means to treat an applicant less favorably than other
+applicants.
+
+================================================================================
+SECTION: Sec. 1002.4 General rules.
+SOURCE URL: https://www.consumerfinance.gov/rules-policy/regulations/1002/4/
+================================================================================
+
+(a) Discrimination. A creditor shall not discriminate against an applicant on a prohibited basis
+regarding any aspect of a credit transaction.
+
+(b) Discouragement. A creditor shall not make any oral or written statement, in advertising or
+otherwise, directed at applicants or prospective applicants that the creditor knows or should know
+would cause a reasonable person to believe that the creditor would deny, or would grant on less
+favorable terms, a credit application by the applicant or prospective applicant because of the
+applicant or prospective applicant's prohibited basis characteristic(s).
+
+(c) Written applications. A creditor shall take written applications for the dwelling-related types
+of credit covered by Sec. 1002.13(a).
+
+================================================================================
+SECTION: Sec. 1002.6 Rules concerning evaluation of applications.
+SOURCE URL: https://www.consumerfinance.gov/rules-policy/regulations/1002/6/
+================================================================================
+
+(a) General rule concerning use of information. Except as otherwise provided in the Act and this
+part, a creditor may consider any information obtained, so long as the information is not used to
+discriminate against an applicant on a prohibited basis. The Act does not provide that the "effects
+test" applies for determining whether there is discrimination in violation of the Act.
+
+(b) Specific rules concerning use of information.
+(1) Except as provided in the Act and this part, a creditor shall not take a prohibited basis into
+account in any system of evaluating the creditworthiness of applicants.
+
+(5) Income. A creditor shall not discount or exclude from consideration the income of an applicant
+or the spouse of an applicant because of a prohibited basis or because the income is derived from
+part-time employment or is an annuity, pension, or other retirement benefit; a creditor may consider
+the amount and probable continuance of any income in evaluating an applicant's creditworthiness.
+
+(6) Credit history. To the extent that a creditor considers credit history in evaluating the
+creditworthiness of similarly qualified applicants for a similar type and amount of credit, in
+evaluating an applicant's creditworthiness a creditor shall consider the credit history, when
+available, of accounts designated as accounts that the applicant and the applicant's spouse are
+permitted to use or for which both are contractually liable.
+
+(8) Marital status. Except as otherwise permitted or required by law, a creditor shall evaluate
+married and unmarried applicants by the same standards; and in evaluating joint applicants, a
+creditor shall not treat applicants differently based on the existence, absence, or likelihood of a
+marital relationship between the parties.
+
+(9) Race, color, religion, national origin, sex. Except as otherwise permitted or required by law, a
+creditor shall not consider race, color, religion, national origin, or sex (or an applicant's or
+other person's decision not to provide the information) in any aspect of a credit transaction.
+
+(c) State property laws. A creditor's consideration or application of state property laws directly
+or indirectly affecting creditworthiness does not constitute unlawful discrimination for the
+purposes of the Act or this part.
+
+================================================================================
+SECTION: Sec. 1002.9 Notifications.
+SOURCE URL: https://www.consumerfinance.gov/rules-policy/regulations/1002/9/
+================================================================================
+
+(a) Notification of action taken, ECOA notice, and statement of specific reasons.
+(1) When notification is required. A creditor shall notify an applicant of action taken within:
+(i) 30 days after receiving a completed application concerning the creditor's approval of,
+counteroffer to, or adverse action on the application;
+(ii) 30 days after taking adverse action on an incomplete application, unless notice is provided in
+accordance with paragraph (c) of this section;
+(iii) 30 days after taking adverse action on an existing account; or
+(iv) 90 days after notifying the applicant of a counteroffer if the applicant does not expressly
+accept or use the credit offered.
+
+(2) Content of notification when adverse action is taken. A notification given to an applicant when
+adverse action is taken shall be in writing and shall contain a statement of the action taken; the
+name and address of the creditor; a statement of the provisions of section 701(a) of the Act; the
+name and address of the Federal agency that administers compliance with respect to the creditor; and
+either a statement of specific reasons for the action taken, or a disclosure of the applicant's
+right to a statement of specific reasons within 30 days, if the statement is requested within 60
+days of the creditor's notification.
+
+(b) Form of ECOA notice and statement of specific reasons.
+(1) ECOA notice. To satisfy the disclosure requirements of paragraph (a)(2) of this section regarding
+section 701(a) of the Act, the creditor shall provide a notice that is substantially similar to the
+following: The Federal Equal Credit Opportunity Act prohibits creditors from discriminating against
+credit applicants on the basis of race, color, religion, national origin, sex, marital status, age
+(provided the applicant has the capacity to enter into a binding contract); because all or part of
+the applicant's income derives from any public assistance program; or because the applicant has in
+good faith exercised any right under the Consumer Credit Protection Act.
+
+(2) Statement of specific reasons. The statement of reasons for adverse action required by paragraph
+(a)(2)(i) of this section must be specific and indicate the principal reason(s) for the adverse
+action. Statements that the adverse action was based on the creditor's internal standards or
+policies or that the applicant, joint applicant, or similar party failed to achieve a qualifying
+score on the creditor's credit scoring system are insufficient.
