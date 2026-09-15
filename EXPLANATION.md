@@ -144,15 +144,23 @@ Pipeline([
 
 ### Knowledge Base — `docs/`
 
-Three real regulatory documents are ingested as the RAG knowledge base:
+Six real, first-party regulatory documents are ingested as a loan-program-aware
+knowledge base — no third-party mirrors, summaries, or synthetic content:
 
-| File | Source | Chunks |
-|---|---|---|
-| `fha_handbook.pdf` | HUD Handbook 4000.1 (official, downloaded from hud.gov) | 1,433 |
-| `hmda_guidelines.pdf` | HMDA Filing Instructions Guide 2020 (official, downloaded from ffiec.cfpb.gov) | 136 |
-| `fannie_mae_selling_guide.pdf` | Fannie Mae Selling Guide summary (expanded mock — direct PDF download blocked by fanniemae.com) | 3 |
+| File | Source | Program | Type |
+|---|---|---|---|
+| `fha_handbook.pdf` | HUD Handbook 4000.1 (official, hud.gov) | FHA | underwriting |
+| `hmda_guidelines.pdf` | HMDA Filing Instructions Guide (official, ffiec.cfpb.gov) | general | reporting |
+| `fannie_mae_selling_guide_excerpts.txt` | Fannie Mae Selling Guide (official, selling-guide.fanniemae.com) | conventional | underwriting |
+| `va_pamphlet_26_7_ch04_credit_underwriting.txt` | VA Pamphlet 26-7, Ch. 4 (official, va.gov) | VA | underwriting |
+| `usda_hb_1_3555_excerpts.txt` | HB-1-3555 (official, usda.gov) | USDA | underwriting |
+| `ecoa_regulation_b.txt` | 12 CFR Part 1002 / Regulation B (official, consumerfinance.gov) | general | fair_lending |
 
-**Total: 1,572 regulation chunks** stored in ChromaDB at `./rag_db/`.
+**Total: 1,640 regulation chunks** stored in ChromaDB at `./rag_db/`, each
+carrying `loan_program`/`document_type`/`source_url` metadata so retrieval can
+be restricted to the applicant's own loan program (see `rag/retriever.py`).
+Freddie Mac's Seller/Servicer Guide is a documented coverage gap — the
+freddiemac.com domain is unreachable from this environment.
 
 ---
 

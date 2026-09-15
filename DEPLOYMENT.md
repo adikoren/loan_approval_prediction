@@ -1,87 +1,64 @@
-# Deploying LoanSight to DigitalOcean Kubernetes
+# Deploying LoanSight to DigitalOcean App Platform
 
-This repo deploys itself via GitHub Actions (`.github/workflows/deploy.yml`).
-Every push to `main` that touches app/model/deployment code builds a Docker
-image, pushes it to DigitalOcean Container Registry (DOCR), and rolls it out
-to a DigitalOcean Kubernetes (DOKS) cluster — creating the registry and
-cluster on the first run if they don't exist yet.
+This repo deploys to **DigitalOcean App Platform**, not Kubernetes. The app
+(`starfish-app`) is configured to auto-deploy from the `main` branch — every
+push to `main` triggers a new build and rollout, no CI workflow required.
+
+Live URL: `https://starfish-app-eyadx.ondigitalocean.app`
 
 ## One-time setup
 
-### 1. Add two repository secrets
+Create the app once from the DigitalOcean control panel (or `doctl apps
+create`) pointing at this GitHub repo, branch `main`, with:
 
-GitHub repo → **Settings → Secrets and variables → Actions → Secrets**:
+- **Source**: this repo, Dockerfile build (`/Dockerfile`)
+- **HTTP port**: `8000`
+- **Deploy on push**: enabled
 
-| Secret | Value |
-|---|---|
-| `DIGITALOCEAN_ACCESS_TOKEN` | A DO API token with **read/write** scope. Generate one at https://cloud.digitalocean.com/account/api/tokens |
-| `ANTHROPIC_API_KEY` | Your Anthropic API key, from https://console.anthropic.com/settings/keys — used by `rag/generator.py` for the compliance explanations |
+### Environment variable
 
-### 2. (Optional) Override infra defaults
+Set under the app's **Settings → App-Level Environment Variables**:
 
-Same screen, **Variables** tab, only if you want something other than the
-defaults baked into the workflow:
-
-| Variable | Default | Notes |
+| Variable | Type | Notes |
 |---|---|---|
-| `DO_REGISTRY_NAME` | `loansight` | DOCR only allows one registry per DO account — if you already have one, set this to its existing name instead of creating a second. |
-| `DO_CLUSTER_NAME` | `loansight` | |
-| `DO_REGION` | `nyc1` | Any DOKS region slug (`doctl kubernetes options regions`). |
-| `DO_NODE_SIZE` | `s-2vcpu-4gb` | The app holds ~300k training rows in memory per pod plus ChromaDB/onnxruntime; `s-1vcpu-2gb` will likely OOM. |
-| `DO_NODE_COUNT` | `1` | Single node keeps cost down for a portfolio project; bump for HA. |
+| `ANTHROPIC_API_KEY` | **Encrypted (SECRET)** | Used by `rag/generator.py` for compliance explanations. Must be a **workspace-scoped** key — see `ANTHROPIC_WORKSPACE_ID` below if your Console org issues unscoped keys. |
+| `ANTHROPIC_WORKSPACE_ID` | Optional, plaintext | Only needed if the API key isn't already scoped to a workspace (surfaces as a 400 error naming the fix if it's missing and required). |
 
-### 3. Push to `main`
+Never set `ANTHROPIC_API_KEY` as a plaintext/`GENERAL` variable — always use
+the encrypted `SECRET` type.
 
-The workflow runs automatically. Or trigger it manually from the
-**Actions** tab → "Build and deploy to DigitalOcean Kubernetes" → **Run workflow**.
+## What happens on push
 
-## What it does, step by step
+1. DigitalOcean detects the push to `main` and builds the image from
+   `Dockerfile`.
+2. `rag_db.tar.gz` (a pre-built ChromaDB vector store, ~1,640 chunks) is
+   baked into the image at build time. `docker-entrypoint.sh` only re-runs
+   `rag/ingest.py` if `/app/rag_db` is empty at container start — so a
+   change to `rag/ingest.py` or `docs/` alone does **not** take effect
+   until `rag_db.tar.gz` is regenerated and committed (see below).
+3. The container starts, `/health` becomes ready, and App Platform routes
+   traffic to the new deployment.
 
-1. Installs `doctl`, authenticated with `DIGITALOCEAN_ACCESS_TOKEN`.
-2. Creates the DOCR registry and DOKS cluster if they don't already exist
-   (idempotent — safe to run on every push).
-3. Links the registry to the cluster (`doctl kubernetes cluster registry add`)
-   so nodes can pull the private image without a manually managed pull secret.
-4. Builds the image from the repo's `Dockerfile` and pushes
-   `registry.digitalocean.com/<registry>/loansight:<git-sha>` and `:latest`.
-5. Applies `k8s/namespace.yaml`, syncs `ANTHROPIC_API_KEY` into a `Secret`
-   (`loansight-secrets`), and applies `k8s/deployment.yaml` /
-   `k8s/service.yaml` with the freshly built image tag substituted in.
-6. Waits for the rollout, then polls the `Service` until DigitalOcean's Load
-   Balancer has a public IP and prints it to the workflow summary.
+Poll deployment status with `mcp__digitalocean__apps-get-deployment-status`
+(or the DigitalOcean dashboard) — it moves through `PENDING_BUILD` →
+`BUILDING` → `DEPLOYING` → `ACTIVE`.
 
-The printed IP is the live URL — `http://<ip>/` serves the frontend,
-`http://<ip>/health` is a liveness check, `http://<ip>/predict` is the API.
+## Regenerating the RAG knowledge base
 
-## Cost
+If you change `docs/*` or `rag/ingest.py`, rebuild and re-commit the archive
+so the deployed image actually picks it up:
 
-Running continuously, this is roughly:
-
-- DOKS control plane: free
-- 1x `s-2vcpu-4gb` node: ~$24/month
-- DO Load Balancer (`lb-small`): ~$12/month
-
-~$36/month total. Delete the cluster (`doctl kubernetes cluster delete
-loansight`) and registry (`doctl registry delete loansight`) when you're done
-demoing it, or scale `DO_NODE_COUNT`/pause the cluster to cut cost.
-
-## First-boot latency
-
-The RAG vector store isn't baked into the image — it's built the first time
-the container starts (`docker-entrypoint.sh` runs `rag/ingest.py` if
-`rag_db/` is empty), because embedding the regulation PDFs needs to download
-a small model from Hugging Face, and that shouldn't be assumed to work in
-every build environment. Expect the first pod to take 1–3 extra minutes to
-become ready; the `startupProbe` in `k8s/deployment.yaml` is set generously
-to account for this. Pod restarts repeat this step since nothing is
-persisted — fine for a single-replica demo; add a `PersistentVolumeClaim`
-for `/app/rag_db` if you want faster restarts later.
+```bash
+python rag/ingest.py          # rebuilds ./rag_db/ from docs/
+tar -czf rag_db.tar.gz rag_db/
+git add rag_db.tar.gz
+```
 
 ## Troubleshooting
 
-```bash
-doctl kubernetes cluster kubeconfig save loansight
-kubectl get pods -n loansight
-kubectl logs -n loansight deploy/loansight
-kubectl get svc loansight -n loansight   # external IP
-```
+- **Fallback compliance explanation** ("...temporarily unavailable"): check
+  the app logs (`mcp__digitalocean__apps-get-logs` or the dashboard) for a
+  `[rag.generator]`-prefixed line — it names the exact cause (missing key,
+  invalid key, or workspace-scoping error) rather than a generic failure.
+- **Retrieval returns nothing for a known-good query**: usually means
+  `rag_db.tar.gz` is stale relative to `rag/ingest.py`/`docs/` — see above.
